@@ -11,24 +11,25 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var border: UIImageView!
+    @IBOutlet weak var button: UIButton!
     var circle:CAShapeLayer!
     var drawAnimation:CABasicAnimation!
-    @IBOutlet weak var button: UIButton!
+    var networkManager:MDNetworkManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.initView()
         self.startAnimatingLoader()
+        self.networkManager = MDNetworkManager()
+        self.networkManager.connect()
         
-        // Target for touch down (hold down)
         self.button.addTarget(self, action: "startCircleAnimation", forControlEvents: UIControlEvents.TouchDown)
-        // Target for release
         self.button.addTarget(self, action: "endCircleAnimation", forControlEvents: UIControlEvents.TouchUpInside)
         
         var longPress = UILongPressGestureRecognizer(target: self, action: "openDoor")
-        longPress.minimumPressDuration = CFTimeInterval(1)
-        self.button.addGestureRecognizer(longPress)
+        longPress.minimumPressDuration = CFTimeInterval(1.2)
+//        self.button.addGestureRecognizer(longPress)
 
     }
 
@@ -77,18 +78,11 @@ class ViewController: UIViewController {
         self.drawAnimation.duration            = 1.0;
         self.drawAnimation.repeatCount         = 1.0; // Animate only once..
     
-    
-    // Animate from no part of the stroke being drawn to the entire stroke being drawn
         self.drawAnimation.fromValue = NSNumber(float: 0)
-    
-    // Set your to value to one to complete animation
         self.drawAnimation.toValue   = NSNumber(float: 1)
-    
-    // Experiment with timing to get the appearence to look the way you want
-    self.drawAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-    
-    // Add the animation to the circle
-    self.circle.addAnimation(self.drawAnimation, forKey:"draw")
+        self.drawAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        self.drawAnimation.delegate = self
+        self.circle.addAnimation(self.drawAnimation, forKey:"draw")
     }
     
     func startCircleAnimation(){
@@ -121,8 +115,19 @@ class ViewController: UIViewController {
         layer.beginTime = timeSincePause;
     }
     
+    override func animationDidStop(anim: CAAnimation!, finished flag: Bool) {
+        if(flag){
+            self.openDoor()
+        }
+    }
+    
     func openDoor(){
-        self.button.setTitle("Fermer", forState: UIControlState.Normal)
+        var json = Dictionary<String,AnyObject>()
+        json["left"] = 1
+        json["right"] = 2
+        json["speed"] = 3
+        json["direction"] = 4
+        self.networkManager.sendAction(json)
         self.startAnimatingLoader()
     }
 

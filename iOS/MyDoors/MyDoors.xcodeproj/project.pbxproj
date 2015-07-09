@@ -14,6 +14,7 @@
 		F5835BBE1B4DB4A1001B6B9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5835BBD1B4DB4A1001B6B9F /* Images.xcassets */; };
 		F5835BC11B4DB4A1001B6B9F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5835BBF1B4DB4A1001B6B9F /* LaunchScreen.xib */; };
 		F5835BCD1B4DB4A1001B6B9F /* MyDoorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5835BCC1B4DB4A1001B6B9F /* MyDoorsTests.swift */; };
+		F5B677901B4EFA9E0020FF00 /* MDNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B6778F1B4EFA9E0020FF00 /* MDNetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		F5835BC61B4DB4A1001B6B9F /* MyDoorsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyDoorsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5835BCB1B4DB4A1001B6B9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5835BCC1B4DB4A1001B6B9F /* MyDoorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDoorsTests.swift; sourceTree = "<group>"; };
+		F5B6778F1B4EFA9E0020FF00 /* MDNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDNetworkManager.swift; sourceTree = "<group>"; };
 		FADF9F6257F5DCFF590DC60A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 				F5835BBD1B4DB4A1001B6B9F /* Images.xcassets */,
 				F5835BBF1B4DB4A1001B6B9F /* LaunchScreen.xib */,
 				F5835BB41B4DB4A1001B6B9F /* Supporting Files */,
+				F5B6778F1B4EFA9E0020FF00 /* MDNetworkManager.swift */,
 			);
 			path = MyDoors;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5835BB91B4DB4A1001B6B9F /* ViewController.swift in Sources */,
+				F5B677901B4EFA9E0020FF00 /* MDNetworkManager.swift in Sources */,
 				F5835BB71B4DB4A1001B6B9F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
