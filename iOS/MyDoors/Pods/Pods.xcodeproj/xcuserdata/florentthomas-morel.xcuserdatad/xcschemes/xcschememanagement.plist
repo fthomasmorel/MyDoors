@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-QRCodeReader.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Socket.IO-Client-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5F605D8A9A86DE982F74C989</key>
+		<key>0EE8D7777C9B6696E426B016</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>88EF180A4FBC71266D7BBF58</key>
+		<key>210786B4B3F589A9C8F91FD5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6067F61055EAE0EB2B31D7D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

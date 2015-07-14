@@ -6,6 +6,12 @@
 // project.
 
 
+// QRCodeReader
+#define COCOAPODS_POD_AVAILABLE_QRCodeReader
+#define COCOAPODS_VERSION_MAJOR_QRCodeReader 1
+#define COCOAPODS_VERSION_MINOR_QRCodeReader 2
+#define COCOAPODS_VERSION_PATCH_QRCodeReader 0
+
 // Socket.IO-Client-Swift
 #define COCOAPODS_POD_AVAILABLE_Socket_IO_Client_Swift
 #define COCOAPODS_VERSION_MAJOR_Socket_IO_Client_Swift 1
