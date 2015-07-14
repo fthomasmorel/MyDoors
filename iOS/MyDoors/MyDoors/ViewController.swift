@@ -136,6 +136,7 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
         layer.beginTime = timeSincePause;
     }
     
+    
     //MARK: Action
     
     func openDoor(){
@@ -151,15 +152,21 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
     }
     
     func didFailConnected(error:String){
-        
+        print(error)
     }
     
     func didReceivedData(json:Dictionary<String, AnyObject>){
-        
+        if let isOpen = json["isOpen"] as? Bool {
+            var title = (isOpen ? "Fermer" : "Ouvrir")
+            self.button.setTitle(title, forState: .Normal)
+        }
     }
     
     func didReceivedState(json:Dictionary<String, AnyObject>){
-        print(json)
+        if let isOpen = json["isOpen"] as? Bool {
+            var title = (isOpen ? "Fermer" : "Ouvrir")
+            self.button.setTitle(title, forState: .Normal)
+        }
     }
 
 }

@@ -32,9 +32,8 @@ io.on('connection', function(socket){
 
   socket.on('portail-action', function(json, callback){
     if(json.token == token){
-      console.log('Socket (server-side): received message:', json);
-      var responseData = { string1:'I like ', string2: 'bananas ', string3:' dude!' };
-      callback(responseData);
+      portailManager.actionOnPortail();
+      callback({ status:200, isOpen: portailManager.isOpen()});
     }else{
       callback({ status:400, token: '', error: constants.WRONG_AUTH_MESSAGE});
     }

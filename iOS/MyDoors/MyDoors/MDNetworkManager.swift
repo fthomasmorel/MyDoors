@@ -9,6 +9,7 @@
 import Foundation
 import Socket_IO_Client_Swift
 
+//MARK: Protocol declaration
 
 protocol MDNetworkManagerDelegate{
     func didConnect()
@@ -16,6 +17,8 @@ protocol MDNetworkManagerDelegate{
     func didReceivedData(json:Dictionary<String, AnyObject>)
     func didReceivedState(json:Dictionary<String, AnyObject>)
 }
+
+//MARK: Constants declaration
 
 let kAuthKey = "auth_key"
 let kConnectAction = "connect"
@@ -25,14 +28,15 @@ let kPortailState = "portail-state"
 let kError = "error"
 let kToken = "token"
 
+
 class MDNetworkManager: NSObject{
 
-//    let socket = SocketIOClient(socketURL: "10.0.1.6:8080")
-    
-    
-    let socket = SocketIOClient(socketURL: "192.168.1.24:8080")
+    //MARK: Attributes
+    let socket = SocketIOClient(socketURL: "192.168.1.26:8080")
     var delegate:MDNetworkManagerDelegate!
     var token = ""
+    
+    //MARK: Public functions
     
     func connect(){
         socket.on(kConnectAction) {data, ack in
@@ -50,6 +54,9 @@ class MDNetworkManager: NSObject{
             }
         })
     }
+    
+    
+    //MARK: Private functions
     
     private func getState(){
         var json = Dictionary<String,AnyObject>()
