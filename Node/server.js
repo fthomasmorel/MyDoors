@@ -1,7 +1,7 @@
 var io = require('socket.io')();
 var PortailManager = require('./PortailManager.js');
 var portailManager = new PortailManager();
-var constants = require('./constants');
+var constants = require('./Constants.js');
 //var rpio = new Rpio();
 
 var token = "";

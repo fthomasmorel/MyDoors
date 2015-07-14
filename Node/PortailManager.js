@@ -1,5 +1,5 @@
 var rpio = require('rpio');
-var constants = require('./constants');
+var constants = require('./Constants.js');
 
 function PortailManager() {
   rpio.setMode('physical');
