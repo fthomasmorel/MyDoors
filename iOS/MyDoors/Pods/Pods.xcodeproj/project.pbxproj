@@ -7,253 +7,262 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0216E11E2D8CB11499C4C0CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44FC64F9357F6A0198E61FC /* Foundation.framework */; };
-		04DBBEAD1F7AB554692318EE /* SocketEngineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A3D4242BB90959B7602634 /* SocketEngineClient.swift */; };
-		094B0BA46CBA63CCDDE0A9BA /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 54B11763ADE24C1D304EAB37 /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0C9893C70F287E078705CFB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44FC64F9357F6A0198E61FC /* Foundation.framework */; };
-		1967202F662F1167D9CAEC72 /* SocketPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94DD07B8049D87EB0FBCDF5 /* SocketPacket.swift */; };
-		1BCDE048770467FC9C352BF4 /* Pods-Socket.IO-Client-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 41AC5EC2EF03D6E1A8FB2E89 /* Pods-Socket.IO-Client-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		23BE8D6C22A7A72F68116C24 /* Pods-QRCodeReader-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EB66D052C0FF7CAD888EE8 /* Pods-QRCodeReader-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		33AA6A741E8C82A42022597E /* SocketAckHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547ACA5BCBB6EA17E4A60336 /* SocketAckHandler.swift */; };
-		37BB557D1241657ABB5AA263 /* Pods-Socket.IO-Client-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E039CEEAF54DF0FF7955C88D /* Pods-Socket.IO-Client-Swift-dummy.m */; };
-		55A06965DDF6D4E9F3A76829 /* SocketIOClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1078A6F78AD91D608E075535 /* SocketIOClient.swift */; };
-		5639910DB47F0C97DDB0357B /* QRCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0017751A3F91D642A0768A8E /* QRCodeReaderViewController.swift */; };
-		65B8B1D5D9A06E95DB0CE74F /* SocketEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600CEC07BBA5F17B34B17CE4 /* SocketEventHandler.swift */; };
-		723E95458A321B716EB47543 /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C1265DC2EA13D4E306C4E /* SwiftRegex.swift */; };
-		7B809EC4144FCAB9B532BB72 /* SocketFixUTF8.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5BD38F665AAE0727EDD204 /* SocketFixUTF8.swift */; };
-		AF35846EAD1AE5BDABB4C8B8 /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F23C60CD617DDBE9DA967D /* SocketParser.swift */; };
-		B04D72E140500A913EF3A80F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DED53F79910B59974AD98955 /* AVFoundation.framework */; };
-		B723BD96DE4BCBF25FDC7BBD /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE9302006593EF37F8EE820 /* WebSocket.swift */; };
-		D256C3538831585545F97EF8 /* Pods-QRCodeReader-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E34FDAB98F5F87FFB5677E /* Pods-QRCodeReader-dummy.m */; };
-		D9146FC012B3322E0CB6C225 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B70017DB53698ABE0F0DDE9 /* UIKit.framework */; };
-		E1836DC66D2ADC1B2782A241 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44FC64F9357F6A0198E61FC /* Foundation.framework */; };
-		E28782D301765153DE341936 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DC69A8E794FAEBA93A8A922F /* Pods-dummy.m */; };
-		F22316ABBF462A221106F5F3 /* QRCodeReader.h in Headers */ = {isa = PBXBuildFile; fileRef = AC5E916DF6B64F49476633E3 /* QRCodeReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FD4B39BD160EF8ED9FD4BCE9 /* SocketEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DF10A063BFF182307B96F0 /* SocketEngine.swift */; };
+		06206121452728E20B4B2E0D /* SocketAnyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180DC1554DF91D4A76E87E2F /* SocketAnyEvent.swift */; };
+		072E558FD36B41927CEE4095 /* QRCodeReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C2D0A3E9FA010B08EC7600D /* QRCodeReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13DB1B25590CF0C33D38C117 /* SocketTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99953030B2D149950C993D78 /* SocketTypes.swift */; };
+		224AA17F5606A51ED944F331 /* SocketPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994C876781A4BB39DA4EA40A /* SocketPacket.swift */; };
+		4CD7C9171044CF8F3D92B50E /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4FC5FF2E2C443555AB7009 /* SocketParser.swift */; };
+		62A2E168C9475879DBA326B7 /* Pods-Socket.IO-Client-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 35771FD570AA6F4C1E064FFA /* Pods-Socket.IO-Client-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		649677B87094D662E4847B57 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5599817F552B945D3891B /* Foundation.framework */; };
+		662B82180D6BB037D7032CE1 /* Pods-QRCodeReader-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DD3E92655F990F3BE4932 /* Pods-QRCodeReader-dummy.m */; };
+		68DA3FF284A88D52119297EB /* SocketIOClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D978A61B986C59752AF9627B /* SocketIOClient.swift */; };
+		6AC5E534DD0B5A42ABD413E1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C1081A973793835F48B5318 /* AVFoundation.framework */; };
+		714AFDD691A7B5F47CDF3CAC /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E9613FBC91513C042603E388 /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		72CC4BE1C1253F62BC544C43 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B83C4EAD23D2BD7F91EE9380 /* Pods-dummy.m */; };
+		77DC23D1345B5330A8C4FCBA /* SocketEngineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3E600B55FBCFFC956733FD /* SocketEngineClient.swift */; };
+		91643D5A0E0A47B20484FABB /* SocketFixUTF8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7C7B88796CBC23E7BD8DD8 /* SocketFixUTF8.swift */; };
+		9CFB64A6D0CE15DA6CECB19B /* QRCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D3C0BF2B638E5DE170FEA8 /* QRCodeReaderViewController.swift */; };
+		9F9572A5C2AF7F9F6E2BD3F2 /* SocketAckManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBE80B6ACD7BCED2FF66AC5 /* SocketAckManager.swift */; };
+		A0383781D246401AB66B7E65 /* SocketEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE00E8AF9A2E800F98FCB4 /* SocketEventHandler.swift */; };
+		ACEFB72EE15BCAFD59C8C4A0 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55CED45713D26E1ABDCDD9A /* WebSocket.swift */; };
+		B6D5493BBBCF5D9D00F57560 /* SocketLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EA82B56C91999C5BF5DD5D /* SocketLogger.swift */; };
+		B842FBDA542A35F2D5405A34 /* Pods-QRCodeReader-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CEC40909827790A43EC6DB3 /* Pods-QRCodeReader-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA915DA5A43C9AD383CEFD3E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00534320C1B316B85ADCC4D6 /* UIKit.framework */; };
+		D4983F7C0BBAF1FD4CE8B0D5 /* Pods-Socket.IO-Client-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B72BE4C25692E893868D26 /* Pods-Socket.IO-Client-Swift-dummy.m */; };
+		D5D4105FAC55FACFCA5732F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5599817F552B945D3891B /* Foundation.framework */; };
+		EB4981FC386FABFC18369BC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B5599817F552B945D3891B /* Foundation.framework */; };
+		EE7EA86A4CBF961C43888A4A /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BF4924C7C663F2DF536127 /* SwiftRegex.swift */; };
+		FEBB6D44DFB39E1B903B90C3 /* SocketEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83F45DC83A3739AA8955C4B /* SocketEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		46D9960D99E4D3F7F593BE51 /* PBXContainerItemProxy */ = {
+		1434B489B199EFE9EE43C2E2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 82D690C778A9F69DAD561910 /* Project object */;
+			containerPortal = 7D71B50A0C16D30FA6033C8A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0EE8D7777C9B6696E426B016;
-			remoteInfo = "Pods-QRCodeReader";
-		};
-		FB2126583A85F75A0E9F2D33 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82D690C778A9F69DAD561910 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6067F61055EAE0EB2B31D7D6;
+			remoteGlobalIDString = 6621F1C981F8F5556FC4B1F1;
 			remoteInfo = "Pods-Socket.IO-Client-Swift";
+		};
+		C34169DBCA6E4AFCE3CE027D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7D71B50A0C16D30FA6033C8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D8B0763876406FED3F8BA3B;
+			remoteInfo = "Pods-QRCodeReader";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0017751A3F91D642A0768A8E /* QRCodeReaderViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewController.swift; sourceTree = "<group>"; };
-		08DF10A063BFF182307B96F0 /* SocketEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketEngine.swift; path = SwiftIO/SocketEngine.swift; sourceTree = "<group>"; };
-		1078A6F78AD91D608E075535 /* SocketIOClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketIOClient.swift; path = SwiftIO/SocketIOClient.swift; sourceTree = "<group>"; };
-		198A8AFD22A65C246F35E6C8 /* Pods-Socket.IO-Client-Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Socket.IO-Client-Swift.xcconfig"; sourceTree = "<group>"; };
-		1B9B465AABE7B7976CC7C4DA /* Pods-QRCodeReader.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-QRCodeReader.xcconfig"; sourceTree = "<group>"; };
-		1EC7BA609997B89D559B2C33 /* Pods-Socket.IO-Client-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Socket.IO-Client-Swift-prefix.pch"; sourceTree = "<group>"; };
-		2EA3B248E2C8193FF1DB9DCF /* Socket_IO_Client_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Socket_IO_Client_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		31E95FA6F66E19578163FA8B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		41AC5EC2EF03D6E1A8FB2E89 /* Pods-Socket.IO-Client-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Socket.IO-Client-Swift-umbrella.h"; sourceTree = "<group>"; };
-		4B70017DB53698ABE0F0DDE9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		4BBB41C4ED23622ACDEB3C89 /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
-		547ACA5BCBB6EA17E4A60336 /* SocketAckHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketAckHandler.swift; path = SwiftIO/SocketAckHandler.swift; sourceTree = "<group>"; };
-		54B11763ADE24C1D304EAB37 /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
-		600CEC07BBA5F17B34B17CE4 /* SocketEventHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketEventHandler.swift; path = SwiftIO/SocketEventHandler.swift; sourceTree = "<group>"; };
-		642C1265DC2EA13D4E306C4E /* SwiftRegex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftRegex.swift; path = SwiftIO/SwiftRegex.swift; sourceTree = "<group>"; };
-		67E34FDAB98F5F87FFB5677E /* Pods-QRCodeReader-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-QRCodeReader-dummy.m"; sourceTree = "<group>"; };
-		6BE2873593D91421F30B3A9A /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
-		6FABE53071940029918703DC /* Pods-QRCodeReader-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-QRCodeReader-prefix.pch"; sourceTree = "<group>"; };
-		718EB53955532D98A9D8E701 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		79F23C60CD617DDBE9DA967D /* SocketParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketParser.swift; path = SwiftIO/SocketParser.swift; sourceTree = "<group>"; };
-		82B3AEBDF39A5E202A7078D6 /* QRCodeReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QRCodeReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		82DCC16591C99AE0AAB5F3B5 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		884377F9EA87A19848997836 /* Pods-Socket.IO-Client-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Socket.IO-Client-Swift.modulemap"; sourceTree = "<group>"; };
-		8BE9302006593EF37F8EE820 /* WebSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = SwiftIO/WebSocket.swift; sourceTree = "<group>"; };
-		9D0B2600B3EB72CCCA431F48 /* Pods-QRCodeReader-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-QRCodeReader-Private.xcconfig"; sourceTree = "<group>"; };
-		A94DD07B8049D87EB0FBCDF5 /* SocketPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketPacket.swift; path = SwiftIO/SocketPacket.swift; sourceTree = "<group>"; };
-		AA812A70F1A56296C3030386 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		AC5E916DF6B64F49476633E3 /* QRCodeReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = QRCodeReader.h; sourceTree = "<group>"; };
-		AE09FC6CCC31B633371EF281 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
-		B4F7179CBC9C440900810018 /* Pods-QRCodeReader.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-QRCodeReader.modulemap"; sourceTree = "<group>"; };
-		C426F3C9D9C0AE1DC319B32B /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		D4248E1CA41E41871909C3E1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		D44FC64F9357F6A0198E61FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D4F89B618CB7061582EC3075 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		D83C5E6E1C2E8F72F75907C8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC69A8E794FAEBA93A8A922F /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		DED53F79910B59974AD98955 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
-		E039CEEAF54DF0FF7955C88D /* Pods-Socket.IO-Client-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Socket.IO-Client-Swift-dummy.m"; sourceTree = "<group>"; };
-		E6A3D4242BB90959B7602634 /* SocketEngineClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketEngineClient.swift; path = SwiftIO/SocketEngineClient.swift; sourceTree = "<group>"; };
-		E997238386D3EAF2A1CA2761 /* Pods-Socket.IO-Client-Swift-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Socket.IO-Client-Swift-Private.xcconfig"; sourceTree = "<group>"; };
-		EBBA91870AB07984311D488C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6EB66D052C0FF7CAD888EE8 /* Pods-QRCodeReader-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-QRCodeReader-umbrella.h"; sourceTree = "<group>"; };
-		F724BE4E01A166B41BF61A00 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD5BD38F665AAE0727EDD204 /* SocketFixUTF8.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketFixUTF8.swift; path = SwiftIO/SocketFixUTF8.swift; sourceTree = "<group>"; };
+		00534320C1B316B85ADCC4D6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		05031EEA12F815560B80EEDF /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
+		180DC1554DF91D4A76E87E2F /* SocketAnyEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketAnyEvent.swift; path = SocketIOClientSwift/SocketAnyEvent.swift; sourceTree = "<group>"; };
+		19865E4C4D0BDFC6E29945DD /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		1C1081A973793835F48B5318 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		1CEC40909827790A43EC6DB3 /* Pods-QRCodeReader-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-QRCodeReader-umbrella.h"; sourceTree = "<group>"; };
+		2860ABACEE7673916FB9D2E8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3417C5DBE2487D98052CB319 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		344E897A801C1A710B517BF5 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		35771FD570AA6F4C1E064FFA /* Pods-Socket.IO-Client-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Socket.IO-Client-Swift-umbrella.h"; sourceTree = "<group>"; };
+		3FBE80B6ACD7BCED2FF66AC5 /* SocketAckManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketAckManager.swift; path = SocketIOClientSwift/SocketAckManager.swift; sourceTree = "<group>"; };
+		401C15E2003EAA230C772D1F /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		42EA82B56C91999C5BF5DD5D /* SocketLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketLogger.swift; path = SocketIOClientSwift/SocketLogger.swift; sourceTree = "<group>"; };
+		43651AF0917FCF62C4D0B6F8 /* Pods-QRCodeReader.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-QRCodeReader.xcconfig"; sourceTree = "<group>"; };
+		48B5EC62C38CA9B2F1B5E265 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		4CE8F116511E3858071B77FB /* Pods-QRCodeReader-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-QRCodeReader-prefix.pch"; sourceTree = "<group>"; };
+		55EE00E8AF9A2E800F98FCB4 /* SocketEventHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketEventHandler.swift; path = SocketIOClientSwift/SocketEventHandler.swift; sourceTree = "<group>"; };
+		5C2D0A3E9FA010B08EC7600D /* QRCodeReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = QRCodeReader.h; sourceTree = "<group>"; };
+		6307D2C557E05DDD321D710C /* Pods-Socket.IO-Client-Swift-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Socket.IO-Client-Swift-Private.xcconfig"; sourceTree = "<group>"; };
+		656AF7EE188D5F0FFBA43DD9 /* Pods-QRCodeReader-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-QRCodeReader-Private.xcconfig"; sourceTree = "<group>"; };
+		66BF4924C7C663F2DF536127 /* SwiftRegex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftRegex.swift; path = SocketIOClientSwift/SwiftRegex.swift; sourceTree = "<group>"; };
+		7A2DD3E92655F990F3BE4932 /* Pods-QRCodeReader-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-QRCodeReader-dummy.m"; sourceTree = "<group>"; };
+		826AB3A1329117895ABF7D97 /* Pods-QRCodeReader.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-QRCodeReader.modulemap"; sourceTree = "<group>"; };
+		8E7C7B88796CBC23E7BD8DD8 /* SocketFixUTF8.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketFixUTF8.swift; path = SocketIOClientSwift/SocketFixUTF8.swift; sourceTree = "<group>"; };
+		8FD2E7612054A5EAE3226310 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		91D3C0BF2B638E5DE170FEA8 /* QRCodeReaderViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = QRCodeReaderViewController.swift; sourceTree = "<group>"; };
+		994C876781A4BB39DA4EA40A /* SocketPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketPacket.swift; path = SocketIOClientSwift/SocketPacket.swift; sourceTree = "<group>"; };
+		99953030B2D149950C993D78 /* SocketTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketTypes.swift; path = SocketIOClientSwift/SocketTypes.swift; sourceTree = "<group>"; };
+		A4B5599817F552B945D3891B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A9B72BE4C25692E893868D26 /* Pods-Socket.IO-Client-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Socket.IO-Client-Swift-dummy.m"; sourceTree = "<group>"; };
+		AD00C036CBA5BDFD67F7136C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		B83C4EAD23D2BD7F91EE9380 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		B87C9C5C1D1A210DF0288190 /* Pods-Socket.IO-Client-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Socket.IO-Client-Swift-prefix.pch"; sourceTree = "<group>"; };
+		CC8B331780C557BAC417B0A2 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		CCAE2162ACFFA71D53C8CFBF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5B5FAC0677BED27D3DF8C2B /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
+		D83F45DC83A3739AA8955C4B /* SocketEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketEngine.swift; path = SocketIOClientSwift/SocketEngine.swift; sourceTree = "<group>"; };
+		D978A61B986C59752AF9627B /* SocketIOClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketIOClient.swift; path = SocketIOClientSwift/SocketIOClient.swift; sourceTree = "<group>"; };
+		DE33AC912F91586F956B4B06 /* Pods-Socket.IO-Client-Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Socket.IO-Client-Swift.xcconfig"; sourceTree = "<group>"; };
+		DE4FC5FF2E2C443555AB7009 /* SocketParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketParser.swift; path = SocketIOClientSwift/SocketParser.swift; sourceTree = "<group>"; };
+		E55CED45713D26E1ABDCDD9A /* WebSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = SocketIOClientSwift/WebSocket.swift; sourceTree = "<group>"; };
+		E9613FBC91513C042603E388 /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
+		EA3E600B55FBCFFC956733FD /* SocketEngineClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SocketEngineClient.swift; path = SocketIOClientSwift/SocketEngineClient.swift; sourceTree = "<group>"; };
+		EE3DA5856348F71830A5D682 /* Pods-Socket.IO-Client-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Socket.IO-Client-Swift.modulemap"; sourceTree = "<group>"; };
+		F12CBB04643B66DAA712C86E /* QRCodeReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QRCodeReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F307EDD33E900F778624A829 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE1528C86638EE86F082B1EB /* Socket_IO_Client_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Socket_IO_Client_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9695B9E5E9269AAD425623CC /* Frameworks */ = {
+		5E2F1C724E752B151457009F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C9893C70F287E078705CFB6 /* Foundation.framework in Frameworks */,
+				6AC5E534DD0B5A42ABD413E1 /* AVFoundation.framework in Frameworks */,
+				649677B87094D662E4847B57 /* Foundation.framework in Frameworks */,
+				BA915DA5A43C9AD383CEFD3E /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D1486CDAA31B3548CC890FEE /* Frameworks */ = {
+		63A5A383B6A67E1479914877 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B04D72E140500A913EF3A80F /* AVFoundation.framework in Frameworks */,
-				0216E11E2D8CB11499C4C0CC /* Foundation.framework in Frameworks */,
-				D9146FC012B3322E0CB6C225 /* UIKit.framework in Frameworks */,
+				EB4981FC386FABFC18369BC3 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D24D2335224F021E51E445B8 /* Frameworks */ = {
+		B13793C9921C9DDF15D3B904 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1836DC66D2ADC1B2782A241 /* Foundation.framework in Frameworks */,
+				D5D4105FAC55FACFCA5732F4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B450FA389DFA64D9C098C99 /* Support Files */ = {
+		5CC1E97D7AB9ADAD5D384552 /* Socket.IO-Client-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				F724BE4E01A166B41BF61A00 /* Info.plist */,
-				B4F7179CBC9C440900810018 /* Pods-QRCodeReader.modulemap */,
-				1B9B465AABE7B7976CC7C4DA /* Pods-QRCodeReader.xcconfig */,
-				9D0B2600B3EB72CCCA431F48 /* Pods-QRCodeReader-Private.xcconfig */,
-				67E34FDAB98F5F87FFB5677E /* Pods-QRCodeReader-dummy.m */,
-				6FABE53071940029918703DC /* Pods-QRCodeReader-prefix.pch */,
-				F6EB66D052C0FF7CAD888EE8 /* Pods-QRCodeReader-umbrella.h */,
+				3FBE80B6ACD7BCED2FF66AC5 /* SocketAckManager.swift */,
+				180DC1554DF91D4A76E87E2F /* SocketAnyEvent.swift */,
+				D83F45DC83A3739AA8955C4B /* SocketEngine.swift */,
+				EA3E600B55FBCFFC956733FD /* SocketEngineClient.swift */,
+				55EE00E8AF9A2E800F98FCB4 /* SocketEventHandler.swift */,
+				8E7C7B88796CBC23E7BD8DD8 /* SocketFixUTF8.swift */,
+				D978A61B986C59752AF9627B /* SocketIOClient.swift */,
+				42EA82B56C91999C5BF5DD5D /* SocketLogger.swift */,
+				994C876781A4BB39DA4EA40A /* SocketPacket.swift */,
+				DE4FC5FF2E2C443555AB7009 /* SocketParser.swift */,
+				99953030B2D149950C993D78 /* SocketTypes.swift */,
+				66BF4924C7C663F2DF536127 /* SwiftRegex.swift */,
+				E55CED45713D26E1ABDCDD9A /* WebSocket.swift */,
+				B089546BE84D0E5C21621841 /* Support Files */,
+			);
+			path = "Socket.IO-Client-Swift";
+			sourceTree = "<group>";
+		};
+		729872AE2F53603538CAD4F4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98015480D22235AD2D47EB6B /* QRCodeReader */,
+				5CC1E97D7AB9ADAD5D384552 /* Socket.IO-Client-Swift */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		757F24D7BD9D708E5FBA4213 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1C1081A973793835F48B5318 /* AVFoundation.framework */,
+				A4B5599817F552B945D3891B /* Foundation.framework */,
+				00534320C1B316B85ADCC4D6 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		78632D6C335E58189A8C7F22 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F307EDD33E900F778624A829 /* Pods.framework */,
+				F12CBB04643B66DAA712C86E /* QRCodeReader.framework */,
+				FE1528C86638EE86F082B1EB /* Socket_IO_Client_Swift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		80BB85A8BA2A0DBD912E634E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC346BE252FE29DCAF53975A /* Pods */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		89C0B399B936D400F72F41AD = {
+			isa = PBXGroup;
+			children = (
+				19865E4C4D0BDFC6E29945DD /* Podfile */,
+				96CFE6240804910435C34395 /* Frameworks */,
+				729872AE2F53603538CAD4F4 /* Pods */,
+				78632D6C335E58189A8C7F22 /* Products */,
+				80BB85A8BA2A0DBD912E634E /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		903ECDD6FCD3C15496133879 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3417C5DBE2487D98052CB319 /* Info.plist */,
+				826AB3A1329117895ABF7D97 /* Pods-QRCodeReader.modulemap */,
+				43651AF0917FCF62C4D0B6F8 /* Pods-QRCodeReader.xcconfig */,
+				656AF7EE188D5F0FFBA43DD9 /* Pods-QRCodeReader-Private.xcconfig */,
+				7A2DD3E92655F990F3BE4932 /* Pods-QRCodeReader-dummy.m */,
+				4CE8F116511E3858071B77FB /* Pods-QRCodeReader-prefix.pch */,
+				1CEC40909827790A43EC6DB3 /* Pods-QRCodeReader-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-QRCodeReader";
 			sourceTree = "<group>";
 		};
-		0BF71B18131EB9C95D6D9E01 /* Frameworks */ = {
+		96CFE6240804910435C34395 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2F5CA156730EC25D149D9313 /* iOS */,
+				757F24D7BD9D708E5FBA4213 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2F5CA156730EC25D149D9313 /* iOS */ = {
+		98015480D22235AD2D47EB6B /* QRCodeReader */ = {
 			isa = PBXGroup;
 			children = (
-				DED53F79910B59974AD98955 /* AVFoundation.framework */,
-				D44FC64F9357F6A0198E61FC /* Foundation.framework */,
-				4B70017DB53698ABE0F0DDE9 /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		38CBF423F5497163FA552484 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				EBBA91870AB07984311D488C /* Pods.framework */,
-				82B3AEBDF39A5E202A7078D6 /* QRCodeReader.framework */,
-				2EA3B248E2C8193FF1DB9DCF /* Socket_IO_Client_Swift.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		43E46559729FE2AA1EDEDDDF /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				DEF2ED9CDC05F2FF78E1DC11 /* Pods */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		4E0F0FEDAC7A8E6141C777BC /* Socket.IO-Client-Swift */ = {
-			isa = PBXGroup;
-			children = (
-				547ACA5BCBB6EA17E4A60336 /* SocketAckHandler.swift */,
-				08DF10A063BFF182307B96F0 /* SocketEngine.swift */,
-				E6A3D4242BB90959B7602634 /* SocketEngineClient.swift */,
-				600CEC07BBA5F17B34B17CE4 /* SocketEventHandler.swift */,
-				FD5BD38F665AAE0727EDD204 /* SocketFixUTF8.swift */,
-				1078A6F78AD91D608E075535 /* SocketIOClient.swift */,
-				A94DD07B8049D87EB0FBCDF5 /* SocketPacket.swift */,
-				79F23C60CD617DDBE9DA967D /* SocketParser.swift */,
-				642C1265DC2EA13D4E306C4E /* SwiftRegex.swift */,
-				8BE9302006593EF37F8EE820 /* WebSocket.swift */,
-				5AE1FE3C79DDF96E73E5A4CF /* Support Files */,
-			);
-			path = "Socket.IO-Client-Swift";
-			sourceTree = "<group>";
-		};
-		580F7ABA2207754410784CB1 /* QRCodeReader */ = {
-			isa = PBXGroup;
-			children = (
-				AC5E916DF6B64F49476633E3 /* QRCodeReader.h */,
-				0017751A3F91D642A0768A8E /* QRCodeReaderViewController.swift */,
-				0B450FA389DFA64D9C098C99 /* Support Files */,
+				5C2D0A3E9FA010B08EC7600D /* QRCodeReader.h */,
+				91D3C0BF2B638E5DE170FEA8 /* QRCodeReaderViewController.swift */,
+				903ECDD6FCD3C15496133879 /* Support Files */,
 			);
 			path = QRCodeReader;
 			sourceTree = "<group>";
 		};
-		5AE1FE3C79DDF96E73E5A4CF /* Support Files */ = {
+		B089546BE84D0E5C21621841 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				31E95FA6F66E19578163FA8B /* Info.plist */,
-				884377F9EA87A19848997836 /* Pods-Socket.IO-Client-Swift.modulemap */,
-				198A8AFD22A65C246F35E6C8 /* Pods-Socket.IO-Client-Swift.xcconfig */,
-				E997238386D3EAF2A1CA2761 /* Pods-Socket.IO-Client-Swift-Private.xcconfig */,
-				E039CEEAF54DF0FF7955C88D /* Pods-Socket.IO-Client-Swift-dummy.m */,
-				1EC7BA609997B89D559B2C33 /* Pods-Socket.IO-Client-Swift-prefix.pch */,
-				41AC5EC2EF03D6E1A8FB2E89 /* Pods-Socket.IO-Client-Swift-umbrella.h */,
+				2860ABACEE7673916FB9D2E8 /* Info.plist */,
+				EE3DA5856348F71830A5D682 /* Pods-Socket.IO-Client-Swift.modulemap */,
+				DE33AC912F91586F956B4B06 /* Pods-Socket.IO-Client-Swift.xcconfig */,
+				6307D2C557E05DDD321D710C /* Pods-Socket.IO-Client-Swift-Private.xcconfig */,
+				A9B72BE4C25692E893868D26 /* Pods-Socket.IO-Client-Swift-dummy.m */,
+				B87C9C5C1D1A210DF0288190 /* Pods-Socket.IO-Client-Swift-prefix.pch */,
+				35771FD570AA6F4C1E064FFA /* Pods-Socket.IO-Client-Swift-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-Socket.IO-Client-Swift";
 			sourceTree = "<group>";
 		};
-		93ED977B1BFFA4C769160E38 = {
+		DC346BE252FE29DCAF53975A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C426F3C9D9C0AE1DC319B32B /* Podfile */,
-				0BF71B18131EB9C95D6D9E01 /* Frameworks */,
-				BF6E5CB4DA4AA394E63BD86C /* Pods */,
-				38CBF423F5497163FA552484 /* Products */,
-				43E46559729FE2AA1EDEDDDF /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		BF6E5CB4DA4AA394E63BD86C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				580F7ABA2207754410784CB1 /* QRCodeReader */,
-				4E0F0FEDAC7A8E6141C777BC /* Socket.IO-Client-Swift */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		DEF2ED9CDC05F2FF78E1DC11 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D83C5E6E1C2E8F72F75907C8 /* Info.plist */,
-				4BBB41C4ED23622ACDEB3C89 /* Pods.modulemap */,
-				718EB53955532D98A9D8E701 /* Pods-acknowledgements.markdown */,
-				AA812A70F1A56296C3030386 /* Pods-acknowledgements.plist */,
-				DC69A8E794FAEBA93A8A922F /* Pods-dummy.m */,
-				6BE2873593D91421F30B3A9A /* Pods-environment.h */,
-				AE09FC6CCC31B633371EF281 /* Pods-frameworks.sh */,
-				82DCC16591C99AE0AAB5F3B5 /* Pods-resources.sh */,
-				54B11763ADE24C1D304EAB37 /* Pods-umbrella.h */,
-				D4248E1CA41E41871909C3E1 /* Pods.debug.xcconfig */,
-				D4F89B618CB7061582EC3075 /* Pods.release.xcconfig */,
+				CCAE2162ACFFA71D53C8CFBF /* Info.plist */,
+				D5B5FAC0677BED27D3DF8C2B /* Pods.modulemap */,
+				401C15E2003EAA230C772D1F /* Pods-acknowledgements.markdown */,
+				CC8B331780C557BAC417B0A2 /* Pods-acknowledgements.plist */,
+				B83C4EAD23D2BD7F91EE9380 /* Pods-dummy.m */,
+				48B5EC62C38CA9B2F1B5E265 /* Pods-environment.h */,
+				05031EEA12F815560B80EEDF /* Pods-frameworks.sh */,
+				344E897A801C1A710B517BF5 /* Pods-resources.sh */,
+				E9613FBC91513C042603E388 /* Pods-umbrella.h */,
+				8FD2E7612054A5EAE3226310 /* Pods.debug.xcconfig */,
+				AD00C036CBA5BDFD67F7136C /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			path = "Target Support Files/Pods";
@@ -262,41 +271,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		88C767544D3876C1C9BEA03B /* Headers */ = {
+		0E92354863041C5CA3615245 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				094B0BA46CBA63CCDDE0A9BA /* Pods-umbrella.h in Headers */,
+				B842FBDA542A35F2D5405A34 /* Pods-QRCodeReader-umbrella.h in Headers */,
+				072E558FD36B41927CEE4095 /* QRCodeReader.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DB49C5CAABA4DB5CC391B59A /* Headers */ = {
+		38DB2FA48C09774B9FB530D3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23BE8D6C22A7A72F68116C24 /* Pods-QRCodeReader-umbrella.h in Headers */,
-				F22316ABBF462A221106F5F3 /* QRCodeReader.h in Headers */,
+				62A2E168C9475879DBA326B7 /* Pods-Socket.IO-Client-Swift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E61292ABDFADC3D8D4C47B18 /* Headers */ = {
+		5C333431FCF04450A2DBD1BC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BCDE048770467FC9C352BF4 /* Pods-Socket.IO-Client-Swift-umbrella.h in Headers */,
+				714AFDD691A7B5F47CDF3CAC /* Pods-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0EE8D7777C9B6696E426B016 /* Pods-QRCodeReader */ = {
+		5D8B0763876406FED3F8BA3B /* Pods-QRCodeReader */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EE525C1ABC5717BCF637BB23 /* Build configuration list for PBXNativeTarget "Pods-QRCodeReader" */;
+			buildConfigurationList = 03A30AD29BA942B256CC3783 /* Build configuration list for PBXNativeTarget "Pods-QRCodeReader" */;
 			buildPhases = (
-				55D57B7F5BAA702CDD21BD4B /* Sources */,
-				D1486CDAA31B3548CC890FEE /* Frameworks */,
-				DB49C5CAABA4DB5CC391B59A /* Headers */,
+				7D098CEE7A577386F9446690 /* Sources */,
+				5E2F1C724E752B151457009F /* Frameworks */,
+				0E92354863041C5CA3615245 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -304,35 +313,16 @@
 			);
 			name = "Pods-QRCodeReader";
 			productName = "Pods-QRCodeReader";
-			productReference = 82B3AEBDF39A5E202A7078D6 /* QRCodeReader.framework */;
+			productReference = F12CBB04643B66DAA712C86E /* QRCodeReader.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		210786B4B3F589A9C8F91FD5 /* Pods */ = {
+		6621F1C981F8F5556FC4B1F1 /* Pods-Socket.IO-Client-Swift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8F397DF85816BC1B5362B00B /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = C2F1CE0C3748D67B8EA2D7FD /* Build configuration list for PBXNativeTarget "Pods-Socket.IO-Client-Swift" */;
 			buildPhases = (
-				EB04A9127B5692EBFBFDA058 /* Sources */,
-				9695B9E5E9269AAD425623CC /* Frameworks */,
-				88C767544D3876C1C9BEA03B /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				945A33CB15A18262AC8EA91A /* PBXTargetDependency */,
-				E8EB64A15278FB77DB26FC6D /* PBXTargetDependency */,
-			);
-			name = Pods;
-			productName = Pods;
-			productReference = EBBA91870AB07984311D488C /* Pods.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		6067F61055EAE0EB2B31D7D6 /* Pods-Socket.IO-Client-Swift */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3291ED98A02B0CDCECBD05E1 /* Build configuration list for PBXNativeTarget "Pods-Socket.IO-Client-Swift" */;
-			buildPhases = (
-				9B435FDF75852B508693262D /* Sources */,
-				D24D2335224F021E51E445B8 /* Frameworks */,
-				E61292ABDFADC3D8D4C47B18 /* Headers */,
+				9D640A1F6C0B54BE3CAEC2EB /* Sources */,
+				63A5A383B6A67E1479914877 /* Frameworks */,
+				38DB2FA48C09774B9FB530D3 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -340,91 +330,173 @@
 			);
 			name = "Pods-Socket.IO-Client-Swift";
 			productName = "Pods-Socket.IO-Client-Swift";
-			productReference = 2EA3B248E2C8193FF1DB9DCF /* Socket_IO_Client_Swift.framework */;
+			productReference = FE1528C86638EE86F082B1EB /* Socket_IO_Client_Swift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A40AA3DD1625224ABE6B642C /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41C45149C6F786D5ADE151C0 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				0420B789828968ED275E7F17 /* Sources */,
+				B13793C9921C9DDF15D3B904 /* Frameworks */,
+				5C333431FCF04450A2DBD1BC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41267C60445277C565059E21 /* PBXTargetDependency */,
+				296AE8BEA6D3FCAF3F13D74C /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = F307EDD33E900F778624A829 /* Pods.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		82D690C778A9F69DAD561910 /* Project object */ = {
+		7D71B50A0C16D30FA6033C8A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = 58A21F072E5CE9278E87B2CA /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 1B6EE4011BCC50877F240F88 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 93ED977B1BFFA4C769160E38;
-			productRefGroup = 38CBF423F5497163FA552484 /* Products */;
+			mainGroup = 89C0B399B936D400F72F41AD;
+			productRefGroup = 78632D6C335E58189A8C7F22 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				210786B4B3F589A9C8F91FD5 /* Pods */,
-				0EE8D7777C9B6696E426B016 /* Pods-QRCodeReader */,
-				6067F61055EAE0EB2B31D7D6 /* Pods-Socket.IO-Client-Swift */,
+				A40AA3DD1625224ABE6B642C /* Pods */,
+				5D8B0763876406FED3F8BA3B /* Pods-QRCodeReader */,
+				6621F1C981F8F5556FC4B1F1 /* Pods-Socket.IO-Client-Swift */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		55D57B7F5BAA702CDD21BD4B /* Sources */ = {
+		0420B789828968ED275E7F17 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D256C3538831585545F97EF8 /* Pods-QRCodeReader-dummy.m in Sources */,
-				5639910DB47F0C97DDB0357B /* QRCodeReaderViewController.swift in Sources */,
+				72CC4BE1C1253F62BC544C43 /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9B435FDF75852B508693262D /* Sources */ = {
+		7D098CEE7A577386F9446690 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37BB557D1241657ABB5AA263 /* Pods-Socket.IO-Client-Swift-dummy.m in Sources */,
-				33AA6A741E8C82A42022597E /* SocketAckHandler.swift in Sources */,
-				FD4B39BD160EF8ED9FD4BCE9 /* SocketEngine.swift in Sources */,
-				04DBBEAD1F7AB554692318EE /* SocketEngineClient.swift in Sources */,
-				65B8B1D5D9A06E95DB0CE74F /* SocketEventHandler.swift in Sources */,
-				7B809EC4144FCAB9B532BB72 /* SocketFixUTF8.swift in Sources */,
-				55A06965DDF6D4E9F3A76829 /* SocketIOClient.swift in Sources */,
-				1967202F662F1167D9CAEC72 /* SocketPacket.swift in Sources */,
-				AF35846EAD1AE5BDABB4C8B8 /* SocketParser.swift in Sources */,
-				723E95458A321B716EB47543 /* SwiftRegex.swift in Sources */,
-				B723BD96DE4BCBF25FDC7BBD /* WebSocket.swift in Sources */,
+				662B82180D6BB037D7032CE1 /* Pods-QRCodeReader-dummy.m in Sources */,
+				9CFB64A6D0CE15DA6CECB19B /* QRCodeReaderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EB04A9127B5692EBFBFDA058 /* Sources */ = {
+		9D640A1F6C0B54BE3CAEC2EB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E28782D301765153DE341936 /* Pods-dummy.m in Sources */,
+				D4983F7C0BBAF1FD4CE8B0D5 /* Pods-Socket.IO-Client-Swift-dummy.m in Sources */,
+				9F9572A5C2AF7F9F6E2BD3F2 /* SocketAckManager.swift in Sources */,
+				06206121452728E20B4B2E0D /* SocketAnyEvent.swift in Sources */,
+				FEBB6D44DFB39E1B903B90C3 /* SocketEngine.swift in Sources */,
+				77DC23D1345B5330A8C4FCBA /* SocketEngineClient.swift in Sources */,
+				A0383781D246401AB66B7E65 /* SocketEventHandler.swift in Sources */,
+				91643D5A0E0A47B20484FABB /* SocketFixUTF8.swift in Sources */,
+				68DA3FF284A88D52119297EB /* SocketIOClient.swift in Sources */,
+				B6D5493BBBCF5D9D00F57560 /* SocketLogger.swift in Sources */,
+				224AA17F5606A51ED944F331 /* SocketPacket.swift in Sources */,
+				4CD7C9171044CF8F3D92B50E /* SocketParser.swift in Sources */,
+				13DB1B25590CF0C33D38C117 /* SocketTypes.swift in Sources */,
+				EE7EA86A4CBF961C43888A4A /* SwiftRegex.swift in Sources */,
+				ACEFB72EE15BCAFD59C8C4A0 /* WebSocket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		945A33CB15A18262AC8EA91A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-QRCodeReader";
-			target = 0EE8D7777C9B6696E426B016 /* Pods-QRCodeReader */;
-			targetProxy = 46D9960D99E4D3F7F593BE51 /* PBXContainerItemProxy */;
-		};
-		E8EB64A15278FB77DB26FC6D /* PBXTargetDependency */ = {
+		296AE8BEA6D3FCAF3F13D74C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Socket.IO-Client-Swift";
-			target = 6067F61055EAE0EB2B31D7D6 /* Pods-Socket.IO-Client-Swift */;
-			targetProxy = FB2126583A85F75A0E9F2D33 /* PBXContainerItemProxy */;
+			target = 6621F1C981F8F5556FC4B1F1 /* Pods-Socket.IO-Client-Swift */;
+			targetProxy = 1434B489B199EFE9EE43C2E2 /* PBXContainerItemProxy */;
+		};
+		41267C60445277C565059E21 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-QRCodeReader";
+			target = 5D8B0763876406FED3F8BA3B /* Pods-QRCodeReader */;
+			targetProxy = C34169DBCA6E4AFCE3CE027D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		16652A1D0FABC056B2FBBFEA /* Debug */ = {
+		379E5A09A180E6F21BC09032 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD00C036CBA5BDFD67F7136C /* Pods.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3858731ED24B945501452FF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FD2E7612054A5EAE3226310 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3A9B6BED7249298315022A4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -456,14 +528,68 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		4F3DDF1E10CCCE9CB3226735 /* Release */ = {
+		73F23D677B0E1AA25957F585 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 656AF7EE188D5F0FFBA43DD9 /* Pods-QRCodeReader-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-QRCodeReader/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = QRCodeReader;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A1E16BB7A1D7063C854F035B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6307D2C557E05DDD321D710C /* Pods-Socket.IO-Client-Swift-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Socket.IO-Client-Swift/Pods-Socket.IO-Client-Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-Socket.IO-Client-Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-Socket.IO-Client-Swift/Pods-Socket.IO-Client-Swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Socket_IO_Client_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BDECEB478E907A43DDFA363E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -490,102 +616,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		5E4EFFBB6CCCF7A68E90A2AF /* Release */ = {
+		CAA557A6D227F18CF7CCBABA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E997238386D3EAF2A1CA2761 /* Pods-Socket.IO-Client-Swift-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-Socket.IO-Client-Swift/Pods-Socket.IO-Client-Swift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-Socket.IO-Client-Swift/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-Socket.IO-Client-Swift/Pods-Socket.IO-Client-Swift.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Socket_IO_Client_Swift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		63C5B62721B3202CAEEE5612 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D4F89B618CB7061582EC3075 /* Pods.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		9181AAB0B425096B7E733EA5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D4248E1CA41E41871909C3E1 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		CC914F13EA8E674EB7470D0F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D0B2600B3EB72CCCA431F48 /* Pods-QRCodeReader-Private.xcconfig */;
+			baseConfigurationReference = 656AF7EE188D5F0FFBA43DD9 /* Pods-QRCodeReader-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -597,22 +637,23 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Pods-QRCodeReader/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = QRCodeReader;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		FD77446FE558542B09F38BD4 /* Debug */ = {
+		DCB5711535AD8D72DE14772B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E997238386D3EAF2A1CA2761 /* Pods-Socket.IO-Client-Swift-Private.xcconfig */;
+			baseConfigurationReference = 6307D2C557E05DDD321D710C /* Pods-Socket.IO-Client-Swift-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -624,39 +665,11 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Socket.IO-Client-Swift/Pods-Socket.IO-Client-Swift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Pods-Socket.IO-Client-Swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-Socket.IO-Client-Swift/Pods-Socket.IO-Client-Swift.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = Socket_IO_Client_Swift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		FE178F399EC39F576FA58C41 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D0B2600B3EB72CCCA431F48 /* Pods-QRCodeReader-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-QRCodeReader/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-QRCodeReader/Pods-QRCodeReader.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = QRCodeReader;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -669,43 +682,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3291ED98A02B0CDCECBD05E1 /* Build configuration list for PBXNativeTarget "Pods-Socket.IO-Client-Swift" */ = {
+		03A30AD29BA942B256CC3783 /* Build configuration list for PBXNativeTarget "Pods-QRCodeReader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FD77446FE558542B09F38BD4 /* Debug */,
-				5E4EFFBB6CCCF7A68E90A2AF /* Release */,
+				CAA557A6D227F18CF7CCBABA /* Debug */,
+				73F23D677B0E1AA25957F585 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58A21F072E5CE9278E87B2CA /* Build configuration list for PBXProject "Pods" */ = {
+		1B6EE4011BCC50877F240F88 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				16652A1D0FABC056B2FBBFEA /* Debug */,
-				4F3DDF1E10CCCE9CB3226735 /* Release */,
+				3A9B6BED7249298315022A4A /* Debug */,
+				BDECEB478E907A43DDFA363E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8F397DF85816BC1B5362B00B /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		41C45149C6F786D5ADE151C0 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9181AAB0B425096B7E733EA5 /* Debug */,
-				63C5B62721B3202CAEEE5612 /* Release */,
+				3858731ED24B945501452FF7 /* Debug */,
+				379E5A09A180E6F21BC09032 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EE525C1ABC5717BCF637BB23 /* Build configuration list for PBXNativeTarget "Pods-QRCodeReader" */ = {
+		C2F1CE0C3748D67B8EA2D7FD /* Build configuration list for PBXNativeTarget "Pods-Socket.IO-Client-Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FE178F399EC39F576FA58C41 /* Debug */,
-				CC914F13EA8E674EB7470D0F /* Release */,
+				DCB5711535AD8D72DE14772B /* Debug */,
+				A1E16BB7A1D7063C854F035B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 82D690C778A9F69DAD561910 /* Project object */;
+	rootObject = 7D71B50A0C16D30FA6033C8A /* Project object */;
 }

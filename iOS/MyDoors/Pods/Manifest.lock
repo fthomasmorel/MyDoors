@@ -1,13 +1,24 @@
 PODS:
   - QRCodeReader (1.2)
-  - Socket.IO-Client-Swift (1.3.4)
+  - Socket.IO-Client-Swift (2.4.0)
 
 DEPENDENCIES:
   - QRCodeReader
-  - Socket.IO-Client-Swift (~> 1.3.2)
+  - Socket.IO-Client-Swift (from `https://github.com/socketio/socket.io-client-swift.git`,
+    branch `swift-2`)
+
+EXTERNAL SOURCES:
+  Socket.IO-Client-Swift:
+    :branch: swift-2
+    :git: https://github.com/socketio/socket.io-client-swift.git
+
+CHECKOUT OPTIONS:
+  Socket.IO-Client-Swift:
+    :commit: 7b795fd98972a117c0aa8e4c48bf424e0bb273b9
+    :git: https://github.com/socketio/socket.io-client-swift.git
 
 SPEC CHECKSUMS:
   QRCodeReader: be8d663cd428ab4cc2583ef568b93f8e9462e43e
-  Socket.IO-Client-Swift: 8f0ae5cac61324d4ffd54ee6cd79afde3d8d61b1
+  Socket.IO-Client-Swift: 753cb6ac012804379bf4f6b899c8f3f072bcf0ab
 
 COCOAPODS: 0.37.1

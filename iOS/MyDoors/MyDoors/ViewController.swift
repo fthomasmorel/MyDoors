@@ -13,6 +13,7 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
 
     //MARK: Attributes
     
+    @IBOutlet weak var panel: UIView!
     @IBOutlet weak var border: UIImageView!
     @IBOutlet weak var button: UIButton!
     
@@ -27,34 +28,62 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.initView()
-        self.startAnimatingLoader()
         
-        NSUserDefaults.standardUserDefaults().setObject("$2bG67de92!y", forKey: kAuthKey)
-        
-        self.networkManager = MDNetworkManager()
-        self.networkManager.delegate = self
-        self.networkManager.connect()
-        
+        self.initQRReader()
         self.button.addTarget(self, action: "startCircleAnimation", forControlEvents: UIControlEvents.TouchDown)
         self.button.addTarget(self, action: "endCircleAnimation", forControlEvents: UIControlEvents.TouchUpInside)
+        
     }
     
     override func viewDidAppear(animated: Bool) {
-/*        if !((NSUserDefaults.standardUserDefaults().objectForKey(kAuthKey)) != nil) {
-            self.presentViewController(reader, animated: true, completion: nil)
-        }*/
+        if !((NSUserDefaults.standardUserDefaults().objectForKey(kAuthKey)) != nil) {
+            self.presentViewController(reader, animated: true) { () -> Void in
+                
+                let filter = UIImageView(frame: self.reader.view.frame)
+                filter.image = UIImage(named: "filter")
+                filter.contentMode = UIViewContentMode.ScaleToFill
+                
+                self.reader.view.addSubview(filter)
+            }
+        }else{
+            self.networkManager = MDNetworkManager()
+            self.networkManager.delegate = self
+            self.networkManager.connect()
+        }
+        
+        self.initView()
+        self.startAnimatingLoader()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    override func animationDidStop(anim: CAAnimation!, finished flag: Bool) {
+    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         if(flag){
             self.openDoor()
+        }
+    }
+    
+    //MARK: QRReader
+    
+    func initQRReader(){
+        reader.resultCallback = {
+            print($1)
+            do{
+                let data = ($1).dataUsingEncoding(NSUTF8StringEncoding)!
+                if let res: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) {
+                    if let json = res as? NSDictionary, let id = json[kId] as? NSString{
+                        if id == "com.thomasmorel.florent.MyDoors" {
+                            NSUserDefaults.standardUserDefaults().setObject(json[kHost], forKey: kHost)
+                            NSUserDefaults.standardUserDefaults().setObject(json[kAuthKey], forKey: kAuthKey)
+                        }
+                    }
+                }
+            }catch let error{
+                print(error)
+            }
+            $0.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
@@ -62,15 +91,15 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
     //MARK: Animation
     
     func initView(){
-        var radius = CGFloat(62)
+        let radius = CGFloat(62)
         self.circle = CAShapeLayer()
-        var bezier:UIBezierPath = (UIBezierPath(roundedRect: (rect: CGRectMake(0, 0, 2*radius, 2*radius)), cornerRadius: radius))
+        let bezier:UIBezierPath = (UIBezierPath(roundedRect: (rect: CGRectMake(0, 0, 2*radius, 2*radius)), cornerRadius: radius))
         self.circle.path = bezier.CGPath
-        var x = (CGRectGetMidX(self.button.frame)-radius)
-        var y = (CGRectGetMidY(self.button.frame)-radius)
+        let x = (CGRectGetMidX(self.button.frame)-radius)
+        let y = (CGRectGetMidY(self.button.frame)-radius) + self.panel.frame.origin.y
         self.circle.position = CGPointMake(x,y)
         self.circle.fillColor = UIColor.clearColor().CGColor;
-        self.circle.strokeColor = UIColor.whiteColor().CGColor;
+        self.circle.strokeColor = self.button.titleLabel?.textColor.CGColor;
         self.circle.lineWidth = 5;
         self.circle.strokeEnd = 0.0;
         self.view.layer.addSublayer(self.circle);
@@ -122,17 +151,17 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
     }
     
     func pauseLayer(layer:CALayer){
-        var pausedTime:CFTimeInterval = layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
+        let pausedTime:CFTimeInterval = layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
         layer.speed = 0.0;
         layer.timeOffset = pausedTime;
     }
     
     func resumeLayer(layer:CALayer){
-        var pausedTime:CFTimeInterval = layer.timeOffset;
+        let pausedTime:CFTimeInterval = layer.timeOffset;
         layer.speed = 1.0;
         layer.timeOffset = 0.0;
         layer.beginTime = 0.0;
-        var timeSincePause:CFTimeInterval = layer.convertTime(CACurrentMediaTime(), fromLayer:nil) - pausedTime;
+        let timeSincePause:CFTimeInterval = layer.convertTime(CACurrentMediaTime(), fromLayer:nil) - pausedTime;
         layer.beginTime = timeSincePause;
     }
     
@@ -144,6 +173,28 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
         self.startAnimatingLoader()
     }
     
+    @IBAction func showQRReader(sender: AnyObject) {
+        self.presentViewController(reader, animated: true) { () -> Void in
+            
+            let arrow = UIButton()
+            arrow.setImage(UIImage(named: "arrow"), forState: .Normal)
+            arrow.sizeToFit()
+            arrow.frame = CGRectMake(20, 20, arrow.frame.size.width, arrow.frame.size.height)
+            arrow.addTarget(self, action: "hideQRReader:", forControlEvents: UIControlEvents.TouchUpInside)
+            
+            let filter = UIImageView(frame: self.reader.view.frame)
+            filter.image = UIImage(named: "filter")
+            filter.contentMode = UIViewContentMode.ScaleToFill
+            
+            self.reader.view.addSubview(filter)
+            self.reader.view.addSubview(arrow)
+        }
+
+    }
+    
+    func hideQRReader(sender: AnyObject){
+        self.reader.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     //MARK: MDNetworkManagerDelegate methods
     
@@ -152,22 +203,25 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
     }
     
     func didFailConnected(error:String){
-        print(error)
+        print(error, appendNewline: false)
     }
     
     func didReceivedData(json:Dictionary<String, AnyObject>){
         if let isOpen = json["isOpen"] as? Bool {
-            var title = (isOpen ? "Fermer" : "Ouvrir")
+            let title = (isOpen ? "Fermer" : "Ouvrir")
             self.button.setTitle(title, forState: .Normal)
         }
     }
     
     func didReceivedState(json:Dictionary<String, AnyObject>){
         if let isOpen = json["isOpen"] as? Bool {
-            var title = (isOpen ? "Fermer" : "Ouvrir")
+            let title = (isOpen ? "Fermer" : "Ouvrir")
             self.button.setTitle(title, forState: .Normal)
         }
     }
 
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
 }
 

@@ -1,8 +1,8 @@
 //
-//  SocketEngineClient.swift
+//  SocketAnyEvent.swift
 //  Socket.IO-Swift
 //
-//  Created by Erik Little on 3/19/15.
+//  Created by Erik Little on 3/28/15.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -21,20 +21,15 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
-//
 
 import Foundation
 
-@objc public protocol SocketEngineClient {
-    var handleQueue:dispatch_queue_attr_t! {get}
-    var emitQueue:dispatch_queue_attr_t! {get}
-    var reconnecting:Bool {get}
-    var socketURL:String {get}
-    var secure:Bool {get}
+public final class SocketAnyEvent: NSObject {
+    public let event:String!
+    public let items:NSArray?
     
-    func parseSocketMessage(msg:String)
-    func parseBinaryData(data:NSData)
-    func pollingDidFail(err:NSError)
-    func webSocketDidCloseWithCode(code:Int, reason:String, wasClean:Bool)
-    func webSocketDidFailWithError(error:NSError)
+    init(event:String, items:NSArray?) {
+        self.event = event
+        self.items = items
+    }
 }

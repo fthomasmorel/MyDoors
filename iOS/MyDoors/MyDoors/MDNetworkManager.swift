@@ -9,6 +9,9 @@
 import Foundation
 import Socket_IO_Client_Swift
 
+
+//App Transport Security has blocked a cleartext HTTP (http://) resource load since it is insecure. Temporary exceptions can be configured via your app's Info.plist file.
+
 //MARK: Protocol declaration
 
 protocol MDNetworkManagerDelegate{
@@ -20,6 +23,8 @@ protocol MDNetworkManagerDelegate{
 
 //MARK: Constants declaration
 
+let kId = "id"
+let kHost = "host"
 let kAuthKey = "auth_key"
 let kConnectAction = "connect"
 let kAuthAction = "auth"
@@ -30,9 +35,15 @@ let kToken = "token"
 
 
 class MDNetworkManager: NSObject{
-
+    
     //MARK: Attributes
-    let socket = SocketIOClient(socketURL: "192.168.1.26:8080")
+//    let socket = SocketIOClient(socketURL: "192.168.1.26:8080")
+    var socket:SocketIOClient!
+    
+    override init(){
+        super.init()
+        self.socket = SocketIOClient(socketURL: NSUserDefaults.standardUserDefaults().objectForKey(kHost) as! String)
+    }
     var delegate:MDNetworkManagerDelegate!
     var token = ""
     
@@ -48,36 +59,41 @@ class MDNetworkManager: NSObject{
     func sendAction(){
         var json = Dictionary<String,AnyObject>()
         json[kToken] = self.token
-        socket.emitWithAck(kPortailAction, json).onAck(UInt64(30000), withCallback: { (ack:NSArray?) -> Void in
+        socket.emitWithAck(kPortailAction, json)(timeoutAfter:UInt64(30000), callback: { (ack:NSArray?) -> Void in
             if let res = ack {
                 self.onAckAction(res[0] as! Dictionary<String, AnyObject>)
             }
         })
     }
-    
-    
+
     //MARK: Private functions
-    
-    private func getState(){
-        var json = Dictionary<String,AnyObject>()
-        json[kToken] = self.token
-        socket.emitWithAck(kPortailState, json).onAck(UInt64(30000), withCallback: { (ack:NSArray?) -> Void in
-            if let res = ack {
-                self.onAckState(res[0] as! Dictionary<String, AnyObject>)
-            }
-        })
-    }
     
     private func auth(){
         var json = Dictionary<String,AnyObject>()
         json[kAuthKey] = NSUserDefaults.standardUserDefaults().objectForKey(kAuthKey) as! String
-        socket.emitWithAck(kAuthAction, json).onAck(UInt64(30000), withCallback: { (ack:NSArray?) -> Void in
-            if let res = ack {
-                if let error = res[0][kError] as? String {
+        
+        socket.emitWithAck(kAuthAction, json)(timeoutAfter: UInt64(30000)) { (ack:NSArray?) -> Void in
+            if let json = ack?.objectAtIndex(0) as? NSDictionary{
+                switch(json[kError] as? String,json[kToken] as? String){
+                case (.Some(let error), .Some):
                     self.onAckAuthWithError(error)
-                }else{
-                    self.onAckAuthWithToken(res[0][kToken] as! String)
+                case (.None, .Some(let token)):
+                    self.onAckAuthWithToken(token)
+                default:
+                    print("Unkown error")
                 }
+            }
+        }
+        
+    }
+
+    
+    private func getState(){
+        var json = Dictionary<String,AnyObject>()
+        json[kToken] = self.token
+        socket.emitWithAck(kPortailState, json)(timeoutAfter:UInt64(30000), callback: { (ack:NSArray?) -> Void in
+            if let res = ack {
+                self.onAckState(res[0] as! Dictionary<String, AnyObject>)
             }
         })
     }
@@ -103,5 +119,5 @@ class MDNetworkManager: NSObject{
     private func onConnect(){
         self.auth()
     }
-
+    
 }

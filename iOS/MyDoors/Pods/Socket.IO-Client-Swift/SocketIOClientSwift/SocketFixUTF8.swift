@@ -1,8 +1,8 @@
 //
-//  EventHandler.swift
+//  SocketFixUTF8.swift
 //  Socket.IO-Swift
 //
-//  Created by Erik Little on 1/18/15.
+//  Created by Erik Little on 3/16/15.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -21,33 +21,18 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
+//
 
 import Foundation
 
-public typealias NormalCallback = (NSArray?, AckEmitter?) -> Void
-public typealias AnyHandler = (event:String, items:AnyObject?)
-public typealias AckEmitter = (AnyObject...) -> Void
-
-private func emitAckCallback(socket:SocketIOClient, num:Int)
-    // Curried
-    (items:AnyObject...) -> Void {
-        socket.emitAck(num, withData: items)
+func fixDoubleUTF8(inout name:String) {
+    let utf8 = name.dataUsingEncoding(NSISOLatin1StringEncoding)!
+    let latin1 = NSString(data: utf8, encoding: NSUTF8StringEncoding)!
+    name = latin1 as String
 }
 
-class SocketEventHandler {
-    let event:String!
-    let callback:NormalCallback?
-    
-    init(event:String, callback:NormalCallback) {
-        self.event = event
-        self.callback = callback
-    }
-    
-    func executeCallback(_ items:NSArray? = nil, withAck ack:Int? = nil, withAckType type:Int? = nil,
-        withSocket socket:SocketIOClient? = nil) {
-            dispatch_async(dispatch_get_main_queue()) {[weak self] in
-                self?.callback?(items, ack != nil ? emitAckCallback(socket!, ack!) : nil)
-                return
-            }
-    }
+func doubleEncodeUTF8(inout str:String) {
+    let latin1 = str.dataUsingEncoding(NSUTF8StringEncoding)!
+    let utf8 = NSString(data: latin1, encoding: NSISOLatin1StringEncoding)!
+    str = utf8 as String
 }

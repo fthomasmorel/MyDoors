@@ -47,7 +47,7 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
         self.title = "QR Code"
     }
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         self.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
         super.init(coder: aDecoder)
     }
@@ -99,30 +99,28 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
             
             if let session = self.avSession, let device = self.avDevice {
                 // AVCaptureDevice
-                if device.lowLightBoostSupported && device.lockForConfiguration(nil) {
-                    device.automaticallyEnablesLowLightBoostWhenAvailable = true
-                    device.unlockForConfiguration()
-                }
+                try! device.lockForConfiguration()
+                device.automaticallyEnablesLowLightBoostWhenAvailable = true
+                device.unlockForConfiguration()
+
                 
                 session.beginConfiguration()
                 
-                var error: NSError?
-                var input = AVCaptureDeviceInput(device: device, error: &error)
-                
-                if let e = error {
-                    println("QRCodeReaderViewController: Error getting input device: \(e)")
+//                var error: NSError?
+                do{
+                    let input = try AVCaptureDeviceInput(device: device)
+                    session.addInput(input)
+                }catch _{
                     session.commitConfiguration()
-                    
+                    /*
                     if let performError = self.errorCallback {
                         dispatch_async(dispatch_get_main_queue()) {
                             session.stopRunning()
                             performError(self, e)
                         }
-                    }
+                    }*/
                     return
                 }
-                
-                session.addInput(input)
                 
                 let output = AVCaptureMetadataOutput()
                 
@@ -130,7 +128,7 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
                 
                 for type in self.metadataObjectTypes {
                     // FIXME: Forced unwrap
-                    if !contains(output.availableMetadataObjectTypes as! [String], type) {
+                    if !(output.availableMetadataObjectTypes as! [String]).contains(type) {
                         if let performError = self.errorCallback {
                             dispatch_async(dispatch_get_main_queue()) {
                                 session.stopRunning()
@@ -158,7 +156,7 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
             
         }
         
-        self.view.layer.addSublayer(self.avVideoPreviewLayer)
+        self.view.layer.addSublayer(self.avVideoPreviewLayer!)
     }
     
     public override func viewWillDisappear(animated: Bool) {
@@ -209,13 +207,13 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
     // MARK: UI Actions
     
     func cancelItemSelected(sender: AnyObject) {
-        avSession?.stopRunning;
+        avSession?.stopRunning()
         cancelCallback?(self);
     }
     
     func handleSwipeDown(sender: UIGestureRecognizer) {
-        avSession?.stopRunning;
-        cancelCallback?(self);
+     //   avSession?.stopRunning()
+     //   cancelCallback?(self);
     }
     
     func handleTorchRecognizerTap(sender: UIGestureRecognizer) {
@@ -226,8 +224,6 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
             break
         case UIGestureRecognizerState.Ended, UIGestureRecognizerState.Cancelled, UIGestureRecognizerState.Failed:
             turnTorchOff()
-        default:
-            break
         }
     }
     
@@ -236,18 +232,27 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
     
     func turnTorchOn() {
         if let device = avDevice {
-            if device.hasTorch && device.torchAvailable && device.isTorchModeSupported(.On) && device.lockForConfiguration(nil) {
-                device.setTorchModeOnWithLevel(fTorchLevel, error: nil)
+            do{
+                try device.lockForConfiguration()
+                if device.hasTorch && device.torchAvailable && device.isTorchModeSupported(.On){
+                    try device.setTorchModeOnWithLevel(fTorchLevel)
+                }
                 device.unlockForConfiguration()
+            }catch _{
             }
         }
     }
     
     func turnTorchOff() {
         if let device = avDevice {
-            if device.hasTorch && device.torchAvailable && device.isTorchModeSupported(.Off) && device.lockForConfiguration(nil) {
-                device.torchMode = .Off
+            do{
+                try device.lockForConfiguration()
+                if device.hasTorch && device.torchAvailable && device.isTorchModeSupported(.Off) {
+                    device.torchMode = .Off
+                }
                 device.unlockForConfiguration()
+            }catch _{
+                
             }
         }
     }
@@ -259,7 +264,7 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
         var metadataStr: String?
         
         for metadata in metadataObjects {
-            if contains(self.metadataObjectTypes, metadata.type) {
+            if self.metadataObjectTypes.contains(metadata.type) {
                 metadataStr = metadata.stringValue;
                 break
             }
