@@ -32,6 +32,8 @@ let kPortailAction = "portail-action"
 let kPortailState = "portail-state"
 let kError = "error"
 let kToken = "token"
+let kOpen = "Open"
+let kClose = "Close"
 
 
 class MDNetworkManager: NSObject{

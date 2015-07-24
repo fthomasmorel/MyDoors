@@ -16,6 +16,7 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
     @IBOutlet weak var panel: UIView!
     @IBOutlet weak var border: UIImageView!
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var updateLabel: UILabel!
     
     let reader = QRCodeReaderViewController()
     
@@ -63,6 +64,17 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
         if(flag){
             self.openDoor()
         }
+    }
+    
+    //MARK : Private
+    
+    private func updateLabelText(){
+        let today = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([NSCalendarUnit.Hour, NSCalendarUnit.Minute], fromDate: today)
+        let hour = String(format: "%02d", components.hour)
+        let minutes = String(format: "%02d", components.minute)
+        updateLabel.text = "last update : \(hour):\(minutes)"
     }
     
     //MARK: QRReader
@@ -199,7 +211,7 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
     //MARK: MDNetworkManagerDelegate methods
     
     func didConnect(){
-        
+        self.updateLabelText()
     }
     
     func didFailConnected(error:String){
@@ -208,15 +220,17 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
     
     func didReceivedData(json:Dictionary<String, AnyObject>){
         if let isOpen = json["isOpen"] as? Bool {
-            let title = (isOpen ? "Fermer" : "Ouvrir")
+            let title = (isOpen ? kClose : kOpen)
             self.button.setTitle(title, forState: .Normal)
+            self.updateLabelText()
         }
     }
     
     func didReceivedState(json:Dictionary<String, AnyObject>){
         if let isOpen = json["isOpen"] as? Bool {
-            let title = (isOpen ? "Fermer" : "Ouvrir")
+            let title = (isOpen ? kClose : kOpen)
             self.button.setTitle(title, forState: .Normal)
+            self.updateLabelText()
         }
     }
 
