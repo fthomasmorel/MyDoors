@@ -32,8 +32,9 @@ io.on('connection', function(socket){
 
   socket.on('portail-action', function(json, callback){
     if(json.token == token){
+      var isOpen = portailManager.isOpen()
       portailManager.actionOnPortail();
-      if(portailManager.isOpen()){
+      if(isOpen){
         portailManager.startWatchDog(function(){
           callback({ status:200, isOpen: portailManager.isOpen()});
         })

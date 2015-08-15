@@ -21,9 +21,7 @@ PortailManager.prototype.actionOnPortail = function() {
 }
 
 PortailManager.prototype.startWatchDog = function(handler){
-  while(rpio.read(constants.DATA_PIN_PORTAIL) == 1){
-    console.log("waiting")
-  }
+  while(rpio.read(constants.DATA_PIN_PORTAIL) == 1){}
   handler()
 }
 
