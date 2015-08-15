@@ -24,7 +24,7 @@ PortailManager.prototype.startWatchDog = function(handler){
   while(rpio.read(constants.DATA_PIN_PORTAIL) == 1){
     console.log("waiting")
   }
-  hander()
+  handler()
 }
 
 module.exports = PortailManager;
