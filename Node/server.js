@@ -33,14 +33,13 @@ io.on('connection', function(socket){
   socket.on('portail-action', function(json, callback){
     if(json.token == token){
       portailManager.actionOnPortail();
-      callback({ status:200, isOpen: portailManager.isOpen()});
-
       if(portailManager.isOpen()){
         portailManager.startWatchDog(function(){
           callback({ status:200, isOpen: portailManager.isOpen()});
         })
+      }else{
+        callback({ status:200, isOpen: portailManager.isOpen()});
       }
-
     }else{
       callback({ status:400, token: '', error: constants.WRONG_AUTH_MESSAGE});
     }
