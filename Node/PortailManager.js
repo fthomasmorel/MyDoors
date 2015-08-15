@@ -20,4 +20,9 @@ PortailManager.prototype.actionOnPortail = function() {
   rpio.write(constants.REMOTE_PIN_PORTAIL, rpio.LOW);
 }
 
+PortailManager.prototype.startWatchDog = function(handler){
+  while rpio.read(constants.DATA_PIN_PORTAIL) == 1 {}
+  hander()
+}
+
 module.exports = PortailManager;
