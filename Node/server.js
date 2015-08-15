@@ -36,10 +36,10 @@ io.on('connection', function(socket){
       portailManager.actionOnPortail();
       if(isOpen){
         portailManager.startWatchDog(function(){
-          callback({ status:200, isOpen: portailManager.isOpen()});
+          callback({ status:200, isOpen: false});
         })
       }else{
-        callback({ status:200, isOpen: portailManager.isOpen()});
+        callback({ status:200, isOpen: true});
       }
     }else{
       callback({ status:400, token: '', error: constants.WRONG_AUTH_MESSAGE});
