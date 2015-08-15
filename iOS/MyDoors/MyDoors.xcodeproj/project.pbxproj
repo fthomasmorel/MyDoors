@@ -15,6 +15,8 @@
 		F5835BC11B4DB4A1001B6B9F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5835BBF1B4DB4A1001B6B9F /* LaunchScreen.xib */; };
 		F5835BCD1B4DB4A1001B6B9F /* MyDoorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5835BCC1B4DB4A1001B6B9F /* MyDoorsTests.swift */; };
 		F5B677901B4EFA9E0020FF00 /* MDNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B6778F1B4EFA9E0020FF00 /* MDNetworkManager.swift */; };
+		F5EBDBBA1B7F6B0C005FB73D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1F12F75F9C5D1667B113AF /* Pods.framework */; };
+		F5EBDBBB1B7F6B0C005FB73D /* Pods.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1F12F75F9C5D1667B113AF /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,20 @@
 			remoteInfo = MyDoors;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F5EBDBBC1B7F6B0C005FB73D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F5EBDBBB1B7F6B0C005FB73D /* Pods.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4F1F12F75F9C5D1667B113AF /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +57,12 @@
 		F5835BCB1B4DB4A1001B6B9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5835BCC1B4DB4A1001B6B9F /* MyDoorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDoorsTests.swift; sourceTree = "<group>"; };
 		F5B6778F1B4EFA9E0020FF00 /* MDNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDNetworkManager.swift; sourceTree = "<group>"; };
+		F5EBDBAB1B7F5A98005FB73D /* QRCodeReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QRCodeReader.framework; path = "Pods/../build/Debug-iphoneos/QRCodeReader.framework"; sourceTree = "<group>"; };
+		F5EBDBAC1B7F5A98005FB73D /* ReachabilitySwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReachabilitySwift.framework; path = "Pods/../build/Debug-iphoneos/ReachabilitySwift.framework"; sourceTree = "<group>"; };
+		F5EBDBAD1B7F5A98005FB73D /* Socket_IO_Client_Swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Socket_IO_Client_Swift.framework; path = "Pods/../build/Debug-iphoneos/Socket_IO_Client_Swift.framework"; sourceTree = "<group>"; };
+		F5EBDBB41B7F67F7005FB73D /* QRCodeReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QRCodeReader.framework; path = "Pods/../build/Debug-iphoneos/QRCodeReader.framework"; sourceTree = "<group>"; };
+		F5EBDBB51B7F67F7005FB73D /* ReachabilitySwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReachabilitySwift.framework; path = "Pods/../build/Debug-iphoneos/ReachabilitySwift.framework"; sourceTree = "<group>"; };
+		F5EBDBB61B7F67F7005FB73D /* Socket_IO_Client_Swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Socket_IO_Client_Swift.framework; path = "Pods/../build/Debug-iphoneos/Socket_IO_Client_Swift.framework"; sourceTree = "<group>"; };
 		FADF9F6257F5DCFF590DC60A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5EBDBBA1B7F6B0C005FB73D /* Pods.framework in Frameworks */,
 				DF415A115637CD2B2AF8315C /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +89,12 @@
 		23CF43133D4DC572626798FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5EBDBB41B7F67F7005FB73D /* QRCodeReader.framework */,
+				F5EBDBB51B7F67F7005FB73D /* ReachabilitySwift.framework */,
+				F5EBDBB61B7F67F7005FB73D /* Socket_IO_Client_Swift.framework */,
+				F5EBDBAB1B7F5A98005FB73D /* QRCodeReader.framework */,
+				F5EBDBAC1B7F5A98005FB73D /* ReachabilitySwift.framework */,
+				F5EBDBAD1B7F5A98005FB73D /* Socket_IO_Client_Swift.framework */,
 				4F1F12F75F9C5D1667B113AF /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -152,6 +181,7 @@
 				F5835BAF1B4DB4A1001B6B9F /* Resources */,
 				C6112154F629675C1ED4769A /* Embed Pods Frameworks */,
 				08919AAF987ED2B900483C40 /* Copy Pods Resources */,
+				F5EBDBBC1B7F6B0C005FB73D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -428,7 +458,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MyDoors/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thomasmorel.florent.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -443,7 +476,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MyDoors/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thomasmorel.florent.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

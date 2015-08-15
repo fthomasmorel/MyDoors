@@ -4,17 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-QRCodeReader.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-Socket.IO-Client-Swift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>QRCodeReader.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ReachabilitySwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Socket.IO-Client-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5D8B0763876406FED3F8BA3B</key>
+		<key>0C66C30381F86C3D642FC983CCADEBB6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6621F1C981F8F5556FC4B1F1</key>
+		<key>8B221CA500F42AFCE41873A238F67E59</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A40AA3DD1625224ABE6B642C</key>
+		<key>ADA296DC5F2DE37A398F5D8E6D1ECDD9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BEAAD83E8F1126E6844FA9DF937E5338</key>
 		<dict>
 			<key>primary</key>
 			<true/>

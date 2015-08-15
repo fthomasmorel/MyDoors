@@ -2,7 +2,7 @@
   "name": "Socket.IO-Client-Swift",
   "version": "2.4.0",
   "summary": "Socket.IO-client for iOS and OS X",
-  "description": "                   Socket.IO-client for iOS and OS X.\n                   Supports ws/wss/polling connections and binary.\n                   For socket.io 1.0+ and Swift 1.2.\n",
+  "description": "Socket.IO-client for iOS and OS X.\nSupports ws/wss/polling connections and binary.\nFor socket.io 1.0+ and Swift 1.2.",
   "homepage": "https://github.com/socketio/socket.io-client-swift",
   "license": {
     "type": "MIT"

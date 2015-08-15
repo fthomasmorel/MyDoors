@@ -8,7 +8,7 @@
 
 import Foundation
 import Socket_IO_Client_Swift
-
+import ReachabilitySwift
 
 //App Transport Security has blocked a cleartext HTTP (http://) resource load since it is insecure. Temporary exceptions can be configured via your app's Info.plist file.
 
@@ -24,7 +24,8 @@ protocol MDNetworkManagerDelegate{
 //MARK: Constants declaration
 
 let kId = "id"
-let kHost = "host"
+let kLocalHost = "local_host"
+let kRemoteHost = "remote_host"
 let kAuthKey = "auth_key"
 let kConnectAction = "connect"
 let kAuthAction = "auth"
@@ -39,13 +40,20 @@ let kClose = "Close"
 class MDNetworkManager: NSObject{
     
     //MARK: Attributes
-//    let socket = SocketIOClient(socketURL: "192.168.1.26:8080")
     var socket:SocketIOClient!
     
-    override init(){
+    init(withDelegate delegate:MDNetworkManagerDelegate){
         super.init()
-        self.socket = SocketIOClient(socketURL: NSUserDefaults.standardUserDefaults().objectForKey(kHost) as! String)
+        let reachability = Reachability.reachabilityForInternetConnection()!
+        if reachability.isReachableViaWiFi(){
+            self.socket = SocketIOClient(socketURL: NSUserDefaults.standardUserDefaults().objectForKey(kLocalHost) as! String)
+        } else {
+            self.socket = SocketIOClient(socketURL: NSUserDefaults.standardUserDefaults().objectForKey(kRemoteHost) as! String)
+        }
+        self.delegate = delegate
+        self.connect()
     }
+    
     var delegate:MDNetworkManagerDelegate!
     var token = ""
     
@@ -121,5 +129,23 @@ class MDNetworkManager: NSObject{
     private func onConnect(){
         self.auth()
     }
+    
+    func reachabilityChanged(note: NSNotification) {
+        
+        let reachability = note.object as! Reachability
+        
+        if reachability.isReachable() {
+            if reachability.isReachableViaWiFi() {
+                self.socket = SocketIOClient(socketURL: NSUserDefaults.standardUserDefaults().objectForKey(kLocalHost) as! String)
+            } else {
+                self.socket = SocketIOClient(socketURL: NSUserDefaults.standardUserDefaults().objectForKey(kRemoteHost) as! String)
+            }
+            self.connect()
+        } else {
+            print("Not reachable")
+        }
+    }
+    
+
     
 }

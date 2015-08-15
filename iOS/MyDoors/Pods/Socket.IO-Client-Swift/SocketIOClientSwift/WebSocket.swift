@@ -93,7 +93,7 @@ public class WebSocket : NSObject, NSStreamDelegate {
     public var headers = Dictionary<String,String>()
     public var voipEnabled = false
     public var selfSignedSSL = false
-    public var security: Security?
+    private var security: Security?
     public var isConnected :Bool {
         return connected
     }
@@ -771,8 +771,8 @@ public class SSLCert {
     }
 }
 
-public class Security {
-    public var validatedDN = true //should the domain name be validated?
+private class Security {
+    private var validatedDN = true //should the domain name be validated?
     
     var isReady = false //is the key processing done?
     var certificates: [NSData]? //the certificates
@@ -786,7 +786,7 @@ public class Security {
     
     :returns: a representation security object to be used with
     */
-    public convenience init(usePublicKeys: Bool = false) {
+    private convenience init(usePublicKeys: Bool = false) {
         let paths = NSBundle.mainBundle().pathsForResourcesOfType("cer", inDirectory: ".")
         var collect = Array<SSLCert>()
         for path in paths {
@@ -805,7 +805,7 @@ public class Security {
     
     :returns: a representation security object to be used with
     */
-    public init(certs: [SSLCert], usePublicKeys: Bool) {
+    private init(certs: [SSLCert], usePublicKeys: Bool) {
         self.usePublicKeys = usePublicKeys
         
         if self.usePublicKeys {
@@ -842,7 +842,7 @@ public class Security {
     
     :returns: if the key was successfully validated
     */
-    public func isValid(trust: SecTrustRef, domain: String?) -> Bool {
+    private func isValid(trust: SecTrustRef, domain: String?) -> Bool {
         
         var tries = 0
         while(!self.isReady) {
@@ -852,13 +852,13 @@ public class Security {
                 return false //doesn't appear it is going to ever be ready...
             }
         }
-        var policy: Unmanaged<SecPolicyRef>
+        var policy: SecPolicyRef
         if self.validatedDN {
-            policy = SecPolicyCreateSSL(1, domain)
+            policy = SecPolicyCreateSSL(Boolean(1), domain).takeRetainedValue()
         } else {
-            policy = SecPolicyCreateBasicX509()
+            policy = SecPolicyCreateBasicX509().takeRetainedValue()
         }
-        SecTrustSetPolicies(trust,policy.takeRetainedValue())
+        SecTrustSetPolicies(trust,policy)
         if self.usePublicKeys {
             if let keys = self.pubKeys {
                 var trustedCount = 0
@@ -927,7 +927,7 @@ public class Security {
     */
     func extractPublicKeyFromCert(cert: SecCertificate, policy: SecPolicy) -> SecKeyRef? {
         let possibleTrust = UnsafeMutablePointer<Unmanaged<SecTrust>?>.alloc(1)
-        SecTrustCreateWithCertificates(cert , policy , possibleTrust)
+        SecTrustCreateWithCertificates(cert, policy, possibleTrust)
         if let trust = possibleTrust.memory {
             var result: SecTrustResultType = 0
             SecTrustEvaluate(trust.takeRetainedValue(),&result)
@@ -946,8 +946,8 @@ public class Security {
     func certificateChainForTrust(trust: SecTrustRef) -> Array<NSData> {
         var collect = Array<NSData>()
         for var i = 0; i < SecTrustGetCertificateCount(trust); i++ {
-            let cert = SecTrustGetCertificateAtIndex(trust,i).takeRetainedValue()
-            collect.append(SecCertificateCopyData(cert).takeRetainedValue())
+            let cert = SecTrustGetCertificateAtIndex(trust,i)
+            collect.append(SecCertificateCopyData(cert.takeRetainedValue()).takeRetainedValue())
         }
         return collect
     }
@@ -961,10 +961,10 @@ public class Security {
     */
     func publicKeyChainForTrust(trust: SecTrustRef) -> Array<SecKeyRef> {
         var collect = Array<SecKeyRef>()
-        let policy = SecPolicyCreateBasicX509()
+        let policy = SecPolicyCreateBasicX509().takeRetainedValue()
         for var i = 0; i < SecTrustGetCertificateCount(trust); i++ {
-            let cert = SecTrustGetCertificateAtIndex(trust,i).takeRetainedValue()
-            if let key = extractPublicKeyFromCert(cert, policy: policy.takeRetainedValue()) {
+            let cert = SecTrustGetCertificateAtIndex(trust,i)
+            if let key = extractPublicKeyFromCert(cert.takeRetainedValue(), policy: policy) {
                 collect.append(key)
             }
         }
