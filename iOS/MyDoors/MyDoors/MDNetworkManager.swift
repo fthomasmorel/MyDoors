@@ -8,7 +8,6 @@
 
 import Foundation
 import Socket_IO_Client_Swift
-import ReachabilitySwift
 
 //App Transport Security has blocked a cleartext HTTP (http://) resource load since it is insecure. Temporary exceptions can be configured via your app's Info.plist file.
 
@@ -24,8 +23,7 @@ protocol MDNetworkManagerDelegate{
 //MARK: Constants declaration
 
 let kId = "id"
-let kLocalHost = "local_host"
-let kRemoteHost = "remote_host"
+let kHost = "host"
 let kAuthKey = "auth_key"
 let kConnectAction = "connect"
 let kAuthAction = "auth"
@@ -44,12 +42,7 @@ class MDNetworkManager: NSObject{
     
     init(withDelegate delegate:MDNetworkManagerDelegate){
         super.init()
-        let reachability = Reachability.reachabilityForInternetConnection()!
-        if reachability.isReachableViaWiFi(){
-            self.socket = SocketIOClient(socketURL: NSUserDefaults.standardUserDefaults().objectForKey(kLocalHost) as! String)
-        } else {
-            self.socket = SocketIOClient(socketURL: NSUserDefaults.standardUserDefaults().objectForKey(kRemoteHost) as! String)
-        }
+        self.socket = SocketIOClient(socketURL: NSUserDefaults.standardUserDefaults().objectForKey(kHost) as! String)
         self.delegate = delegate
         self.connect()
     }
@@ -129,23 +122,4 @@ class MDNetworkManager: NSObject{
     private func onConnect(){
         self.auth()
     }
-    
-    func reachabilityChanged(note: NSNotification) {
-        
-        let reachability = note.object as! Reachability
-        
-        if reachability.isReachable() {
-            if reachability.isReachableViaWiFi() {
-                self.socket = SocketIOClient(socketURL: NSUserDefaults.standardUserDefaults().objectForKey(kLocalHost) as! String)
-            } else {
-                self.socket = SocketIOClient(socketURL: NSUserDefaults.standardUserDefaults().objectForKey(kRemoteHost) as! String)
-            }
-            self.connect()
-        } else {
-            print("Not reachable")
-        }
-    }
-    
-
-    
 }

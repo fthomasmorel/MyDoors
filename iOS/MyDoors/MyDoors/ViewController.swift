@@ -85,8 +85,7 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
                 if let res: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) {
                     if let json = res as? NSDictionary, let id = json[kId] as? NSString{
                         if id == "com.thomasmorel.florent.MyDoors" {
-                            NSUserDefaults.standardUserDefaults().setObject(json[kLocalHost], forKey: kLocalHost)
-                            NSUserDefaults.standardUserDefaults().setObject(json[kRemoteHost], forKey: kRemoteHost)
+                            NSUserDefaults.standardUserDefaults().setObject(json[kHost], forKey: kHost)
                             NSUserDefaults.standardUserDefaults().setObject(json[kAuthKey], forKey: kAuthKey)
                         }
                     }
