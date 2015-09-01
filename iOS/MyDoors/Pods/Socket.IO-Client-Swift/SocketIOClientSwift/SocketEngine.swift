@@ -64,7 +64,6 @@ public final class SocketEngine: NSObject, WebSocketDelegate, SocketLogClient {
 
     weak var client: SocketEngineClient?
     var cookies: [NSHTTPCookie]?
-    var log = false
     var sid = ""
     var socketPath = ""
     var urlPolling: String?
@@ -94,7 +93,6 @@ public final class SocketEngine: NSObject, WebSocketDelegate, SocketLogClient {
         forceWebsockets = opts?["forceWebsockets"] as? Bool ?? false
         forcePolling = opts?["forcePolling"] as? Bool ?? false
         cookies = opts?["cookies"] as? [NSHTTPCookie]
-        log = opts?["log"] as? Bool ?? false
         socketPath = opts?["path"] as? String ?? ""
         extraHeaders = opts?["extraHeaders"] as? [String: String]
     }
@@ -270,7 +268,7 @@ public final class SocketEngine: NSObject, WebSocketDelegate, SocketLogClient {
                 } else if !this.closed && this.polling {
                     this.doPoll()
                 }
-            }}!.resume()
+            }}.resume()
     }
 
     private func flushProbeWait() {
@@ -347,7 +345,7 @@ public final class SocketEngine: NSObject, WebSocketDelegate, SocketLogClient {
                         this?.doPoll()
                     }
                 }
-            }}!.resume()
+            }}.resume()
     }
 
     // We had packets waiting for send when we upgraded
@@ -370,23 +368,17 @@ public final class SocketEngine: NSObject, WebSocketDelegate, SocketLogClient {
         if message.hasPrefix("b4") {
             // binary in base64 string
             message.removeRange(Range<String.Index>(start: message.startIndex,
-                end: advance(message.startIndex, 2)))
+                end: advance(message.startIndex,2)))
 
             if let data = NSData(base64EncodedString: message,
-                options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters), client = client {
-                    dispatch_async(client.handleQueue) {[weak self] in
-                        self?.client?.parseBinaryData(data)
-                    }
+                options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters) {
+                    client?.parseBinaryData(data)
             }
         }
     }
 
     private func handleMessage(message: String) {
-        if let client = client {
-            dispatch_async(client.handleQueue) {[weak client] in
-                client?.parseSocketMessage(message)
-            }
-        }
+        client?.parseSocketMessage(message)
     }
 
     private func handleNOOP() {
@@ -395,25 +387,33 @@ public final class SocketEngine: NSObject, WebSocketDelegate, SocketLogClient {
 
     private func handleOpen(openData: String) {
         let mesData = openData.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
-
         do {
             let json = try NSJSONSerialization.JSONObjectWithData(mesData,
                 options: NSJSONReadingOptions.AllowFragments) as? NSDictionary
             if let sid = json?["sid"] as? String {
+                let upgradeWs: Bool
+
                 self.sid = sid
                 connected = true
-
-                if !forcePolling && !forceWebsockets {
-                    createWebsocket(andConnect: true)
+                
+                if let upgrades = json?["upgrades"] as? [String] {
+                    upgradeWs = upgrades.filter {$0 == "websocket"}.count != 0
+                } else {
+                    upgradeWs = false
                 }
                 
                 if let pingInterval = json?["pingInterval"] as? Double, pingTimeout = json?["pingTimeout"] as? Double {
                     self.pingInterval = pingInterval / 1000.0
                     self.pingTimeout = pingTimeout / 1000.0
                 }
+                
+                if !forcePolling && !forceWebsockets && upgradeWs {
+                    createWebsocket(andConnect: true)
+                }
             }
         } catch {
             SocketLogger.err("Error parsing open packet", client: self)
+            return
         }
 
         startPingTimer()
@@ -543,11 +543,7 @@ public final class SocketEngine: NSObject, WebSocketDelegate, SocketLogClient {
     }
 
     private func parseEngineData(data: NSData) {
-        if let client = client {
-            dispatch_async(client.handleQueue) {[weak self] in
-                self?.client?.parseBinaryData(data.subdataWithRange(NSMakeRange(1, data.length - 1)))
-            }
-        }
+        client?.parseBinaryData(data.subdataWithRange(NSMakeRange(1, data.length - 1)))
     }
 
     private func parseEngineMessage(var message: String, fromPolling: Bool) {

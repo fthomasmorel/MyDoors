@@ -388,7 +388,7 @@ public class WebSocket : NSObject, NSStreamDelegate {
     
     ///validates the HTTP is a 101 as per the RFC spec
     private func validateResponse(buffer: UnsafePointer<UInt8>, bufferLen: Int) -> Bool {
-        let response = CFHTTPMessageCreateEmpty(kCFAllocatorDefault, 0).takeRetainedValue()
+        let response = CFHTTPMessageCreateEmpty(kCFAllocatorDefault, false).takeRetainedValue()
         CFHTTPMessageAppendBytes(response, buffer, bufferLen)
         if CFHTTPMessageGetResponseStatusCode(response) != 101 {
             return false
@@ -459,7 +459,7 @@ public class WebSocket : NSObject, NSStreamDelegate {
                 if payloadLen == 1 {
                     code = CloseCode.ProtocolError.rawValue
                 } else if payloadLen > 1 {
-                    var codeBuffer = UnsafePointer<UInt16>((buffer+offset))
+                    let codeBuffer = UnsafePointer<UInt16>((buffer+offset))
                     code = codeBuffer[0].bigEndian
                     if code < 1000 || (code > 1003 && code < 1007) || (code > 1011 && code < 3000) {
                         code = CloseCode.ProtocolError.rawValue
@@ -495,7 +495,7 @@ public class WebSocket : NSObject, NSStreamDelegate {
                 dataLength = UInt64(bytes[0].bigEndian)
                 offset += sizeof(UInt16)
             }
-            if bufferLen < offset {
+            if bufferLen < offset || UInt64(bufferLen - offset) < dataLength {
                 fragBuffer = NSData(bytes: buffer, length: bufferLen)
                 return
             }
@@ -680,7 +680,7 @@ public class WebSocket : NSObject, NSStreamDelegate {
                 offset += sizeof(UInt64)
             }
             buffer[1] |= self.MaskMask
-            var maskKey = UnsafeMutablePointer<UInt8>(buffer + offset)
+            let maskKey = UnsafeMutablePointer<UInt8>(buffer + offset)
             SecRandomCopyBytes(kSecRandomDefault, Int(sizeof(UInt32)), maskKey)
             offset += sizeof(UInt32)
             
@@ -854,9 +854,9 @@ private class Security {
         }
         var policy: SecPolicyRef
         if self.validatedDN {
-            policy = SecPolicyCreateSSL(Boolean(1), domain).takeRetainedValue()
+            policy = SecPolicyCreateSSL(true, domain)
         } else {
-            policy = SecPolicyCreateBasicX509().takeRetainedValue()
+            policy = SecPolicyCreateBasicX509()
         }
         SecTrustSetPolicies(trust,policy)
         if self.usePublicKeys {
@@ -879,7 +879,7 @@ private class Security {
             let serverCerts = certificateChainForTrust(trust)
             var collect = Array<SecCertificate>()
             for cert in certs {
-                collect.append(SecCertificateCreateWithData(nil,cert).takeRetainedValue())
+                collect.append(SecCertificateCreateWithData(nil,cert)!)
             }
             SecTrustSetAnchorCertificates(trust,collect)
             var result: SecTrustResultType = 0
@@ -913,7 +913,7 @@ private class Security {
     func extractPublicKey(data: NSData) -> SecKeyRef? {
         let possibleCert = SecCertificateCreateWithData(nil,data)
         if let cert = possibleCert {
-            return extractPublicKeyFromCert(cert.takeRetainedValue(),policy: SecPolicyCreateBasicX509().takeRetainedValue())
+            return extractPublicKeyFromCert(cert,policy: SecPolicyCreateBasicX509())
         }
         return nil
     }
@@ -926,12 +926,12 @@ private class Security {
     :returns: a public key
     */
     func extractPublicKeyFromCert(cert: SecCertificate, policy: SecPolicy) -> SecKeyRef? {
-        let possibleTrust = UnsafeMutablePointer<Unmanaged<SecTrust>?>.alloc(1)
-        SecTrustCreateWithCertificates(cert, policy, possibleTrust)
+        let possibleTrust = UnsafeMutablePointer<SecTrust?>.alloc(1)
+        SecTrustCreateWithCertificates( cert, policy, possibleTrust)
         if let trust = possibleTrust.memory {
             var result: SecTrustResultType = 0
-            SecTrustEvaluate(trust.takeRetainedValue(),&result)
-            return SecTrustCopyPublicKey(trust.takeRetainedValue()).takeRetainedValue()
+            SecTrustEvaluate(trust,&result)
+            return SecTrustCopyPublicKey(trust)
         }
         return nil
     }
@@ -947,7 +947,7 @@ private class Security {
         var collect = Array<NSData>()
         for var i = 0; i < SecTrustGetCertificateCount(trust); i++ {
             let cert = SecTrustGetCertificateAtIndex(trust,i)
-            collect.append(SecCertificateCopyData(cert.takeRetainedValue()).takeRetainedValue())
+            collect.append(SecCertificateCopyData(cert!))
         }
         return collect
     }
@@ -961,10 +961,10 @@ private class Security {
     */
     func publicKeyChainForTrust(trust: SecTrustRef) -> Array<SecKeyRef> {
         var collect = Array<SecKeyRef>()
-        let policy = SecPolicyCreateBasicX509().takeRetainedValue()
+        let policy = SecPolicyCreateBasicX509()
         for var i = 0; i < SecTrustGetCertificateCount(trust); i++ {
             let cert = SecTrustGetCertificateAtIndex(trust,i)
-            if let key = extractPublicKeyFromCert(cert.takeRetainedValue(), policy: policy) {
+            if let key = extractPublicKeyFromCert(cert!, policy: policy) {
                 collect.append(key)
             }
         }

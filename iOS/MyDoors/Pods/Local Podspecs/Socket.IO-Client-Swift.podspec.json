@@ -1,6 +1,6 @@
 {
   "name": "Socket.IO-Client-Swift",
-  "version": "2.4.0",
+  "version": "2.4.3",
   "summary": "Socket.IO-client for iOS and OS X",
   "description": "Socket.IO-client for iOS and OS X.\nSupports ws/wss/polling connections and binary.\nFor socket.io 1.0+ and Swift 1.2.",
   "homepage": "https://github.com/socketio/socket.io-client-swift",
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/socketio/socket.io-client-swift.git",
-    "tag": "v2.4.0"
+    "tag": "v2.4.3"
   },
   "source_files": "SocketIOClientSwift/**/*.swift",
   "requires_arc": true

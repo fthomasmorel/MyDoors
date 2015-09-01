@@ -1,7 +1,7 @@
 PODS:
   - QRCodeReader (1.2)
   - ReachabilitySwift (2.0-beta3)
-  - Socket.IO-Client-Swift (2.4.0)
+  - Socket.IO-Client-Swift (2.4.3)
 
 DEPENDENCIES:
   - QRCodeReader
@@ -23,12 +23,12 @@ CHECKOUT OPTIONS:
     :commit: e41475caeb88f8e5612a4e08e1e7a4cd312cf126
     :git: https://github.com/ashleymills/Reachability.swift.git
   Socket.IO-Client-Swift:
-    :commit: f752507a1183a9d84d7e8d09ae51a0cb00a53b8f
+    :commit: 8dc7121355ab47b512383b2798bff41783a18ab9
     :git: https://github.com/socketio/socket.io-client-swift.git
 
 SPEC CHECKSUMS:
   QRCodeReader: be8d663cd428ab4cc2583ef568b93f8e9462e43e
   ReachabilitySwift: 3e14519fb02138a7f0c9604cab990f5ae1eb1f8a
-  Socket.IO-Client-Swift: 4e5372e7122b401d9f6bc931a3c8c7b6edf2205f
+  Socket.IO-Client-Swift: 4a7170cb0572a8490588ea1bc9e76f5dafc8150d
 
 COCOAPODS: 0.38.2

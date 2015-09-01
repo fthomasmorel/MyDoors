@@ -100,7 +100,7 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
             if let session = self.avSession, let device = self.avDevice {
                 // AVCaptureDevice
                 try! device.lockForConfiguration()
-                device.automaticallyEnablesLowLightBoostWhenAvailable = true
+//                device.automaticallyEnablesLowLightBoostWhenAvailable = true
                 device.unlockForConfiguration()
 
                 
