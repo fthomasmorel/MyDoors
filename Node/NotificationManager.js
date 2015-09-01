@@ -12,14 +12,14 @@ var portailManager = new PortailManager();
 function main(){
   var state = !portailManager.isOpen();
   if (state != portailManager.isOpen()){
-    setTimeout(function() {
       console.log("notif")
       var text = "🔒Le portail s'est fermé";
       if (portailManager.isOpen()) { text = "🔓Le portail s'est ouvert" }
       prepareNotificationWithText(text);
-    }, 3000);
   }
-  main()
+  setTimeout(function() {
+    main()
+  }, 3000);
 }
 
 function prepareNotificationWithText(text){
