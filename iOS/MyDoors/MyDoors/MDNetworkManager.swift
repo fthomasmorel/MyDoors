@@ -32,7 +32,8 @@ let kPortailAction = "portail-action"
 let kPortailState = "portail-state"
 let kAPNSTokenAction = "apns-token"
 
-let kAPNSToken = "apns_token"
+let kAPNSOldToken = "apns_oldToken"
+let kAPNSNewToken = "apns_newToken"
 let kError = "error"
 let kToken = "token"
 let kOpen = "Open"
@@ -76,8 +77,20 @@ class MDNetworkManager: NSObject{
     func sendAPNSToken(apnsToken:String){
         var json = Dictionary<String,AnyObject>()
         json[kToken] = self.token
-        json[kAPNSToken] = apnsToken
-        socket.emit(kAPNSTokenAction, json)
+        json[kAPNSOldToken] = NSUserDefaults.standardUserDefaults().objectForKey(kAPNSOldToken)
+        json[kAPNSNewToken] = apnsToken
+        socket.emitWithAck(kAPNSTokenAction, json)(timeoutAfter: UInt64(30000)) { (ack:NSArray?) -> Void in
+            if let json = ack?.objectAtIndex(0) as? NSDictionary{
+                switch(json[kError] as? String){
+                case (.Some(let error)):
+                    print(error)
+                    break
+                case (.None):
+                    NSUserDefaults.standardUserDefaults().setObject(apnsToken, forKey: kAPNSOldToken)
+                    break
+                }
+            }
+        }
     }
 
     //MARK: Private functions

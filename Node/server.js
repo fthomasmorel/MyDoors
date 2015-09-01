@@ -3,7 +3,7 @@ var PortailManager = require('./PortailManager.js');
 var portailManager = new PortailManager();
 var constants = require('./Constants.js');
 var fs = require('fs');
-
+var file = "./uuid":
 var token = "";
 
 console.log("Starting Server...");
@@ -22,10 +22,12 @@ io.on('connection', function(socket){
     }
   })
 
-  socket.on('apns-token', function(json) {
+  socket.on('apns-token', function(json, callback) {
     console.log(json);
     if(json.apns_token && json.token == token){
-        fs.writeFile("./uuid", json.apns_token + "\n", function() {});
+        updateToken(json.apns_oldToken, json.apns_newToken, callback);
+    }else{
+        callback({ status:400, error: constants.WRONG_AUTH_MESSAGE});
     }
   })
 
@@ -60,4 +62,24 @@ function generateToken(){
   var current_date = (new Date()).valueOf().toString();
   var random = Math.random().toString();
   return require('crypto').createHash('sha1').update(current_date + random).digest('hex');
+}
+
+function updateToken(oldToken, newToken, callback){
+  fs.readFile(file, 'utf8', function (err,data) {
+  if (err) {
+    return console.log(err);
+  }
+  var result = data.replace(/oldToken/g, newToken);
+  if(result == data || data == ""){
+    fs.writeFile(file, newToken+'\n', 'utf8', function (err) {
+       if (err) return console.log(err);
+       else callback({ status:200});
+    });
+  }else{
+    fs.writeFile(file, result, 'utf8', function (err) {
+       if (err) return console.log(err);
+       else callback({ status:200});
+    });
+  }
+});
 }
