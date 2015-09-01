@@ -2,7 +2,7 @@ var io = require('socket.io')();
 var PortailManager = require('./PortailManager.js');
 var portailManager = new PortailManager();
 var constants = require('./Constants.js');
-//var rpio = new Rpio();
+var fs = require('fs');
 
 var token = "";
 
@@ -22,14 +22,10 @@ io.on('connection', function(socket){
     }
   })
 
-  socket.on('apns-token', function(json, callback) {
+  socket.on('apns-token', function(json) {
     console.log(json);
-    if(json.apns_token){
-        var fs = require('fs');
+    if(json.apns_token && json.token == token){
         fs.writeFile("./uuid", json.apns_token, function() {});
-        callback({ status:200});
-    }else{
-        callback({ status:400, error: constants.WRONG_AUTH_MESSAGE});
     }
   })
 

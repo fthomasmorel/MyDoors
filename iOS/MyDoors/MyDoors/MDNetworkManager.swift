@@ -25,10 +25,14 @@ protocol MDNetworkManagerDelegate{
 let kId = "id"
 let kHost = "host"
 let kAuthKey = "auth_key"
+
 let kConnectAction = "connect"
 let kAuthAction = "auth"
 let kPortailAction = "portail-action"
 let kPortailState = "portail-state"
+let kAPNSTokenAction = "apns-token"
+
+let kAPNSToken = "apns_token"
 let kError = "error"
 let kToken = "token"
 let kOpen = "Open"
@@ -67,6 +71,13 @@ class MDNetworkManager: NSObject{
                 self.onAckAction(res[0] as! Dictionary<String, AnyObject>)
             }
         })
+    }
+    
+    func sendAPNSToken(apnsToken:String){
+        var json = Dictionary<String,AnyObject>()
+        json[kToken] = self.token
+        json[kAPNSToken] = apnsToken
+        socket.emit(kAPNSTokenAction, json)
     }
 
     //MARK: Private functions

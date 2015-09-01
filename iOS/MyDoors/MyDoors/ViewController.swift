@@ -32,7 +32,11 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
         self.initQRReader()
         self.button.addTarget(self, action: "startCircleAnimation", forControlEvents: UIControlEvents.TouchDown)
         self.button.addTarget(self, action: "endCircleAnimation", forControlEvents: UIControlEvents.TouchUpInside)
-        
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "updateAPNSToken:",
+            name: "apnsTokenDidUpdate",
+            object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -210,6 +214,7 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
     
     func didConnect(){
         self.updateLabelText()
+        UIApplication.sharedApplication().registerForRemoteNotifications()
     }
     
     func didFailConnected(error:String){
@@ -231,6 +236,16 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
             self.updateLabelText()
         }
     }
+    
+    //MARK : Notification
+    
+    func updateAPNSToken(notification:NSNotification){
+        if let token = notification.userInfo![kAPNSToken] as? String {
+            self.networkManager.sendAPNSToken(token)
+        }
+    }
+    
+    
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
