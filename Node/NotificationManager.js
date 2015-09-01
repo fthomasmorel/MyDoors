@@ -10,12 +10,16 @@ var PortailManager = require('./PortailManager.js');
 var portailManager = new PortailManager();
 var state = !portailManager.isOpen();
 
+while(true){
 if (state != portailManager.isOpen()){
-  console.log("state did change");
-  var text = "🔒Le portail s'est fermé";
-  if (portailManager.isOpen()) { text = "🔓Le portail s'est ouvert" }
-  prepareNotificationWithText(text);
-  state = !state;
+  setTimeout(function() {
+    console.log("notif")
+    var text = "🔒Le portail s'est fermé";
+    if (portailManager.isOpen()) { text = "🔓Le portail s'est ouvert" }
+    prepareNotificationWithText(text);
+  }, 3000);
+  //state = !state;
+}
 }
 
 function prepareNotificationWithText(text){
