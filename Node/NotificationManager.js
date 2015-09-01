@@ -8,19 +8,33 @@ var rl = readline.createInterface({
 
 var PortailManager = require('./PortailManager.js');
 var portailManager = new PortailManager();
-var state = portailManager.isOpen();
+var state = !portailManager.isOpen();
 
-while(true){
-  if (portailManager.isOpen() != state){
-    state = portailManager.isOpen();
-    var text = "Le portail s'est fermé";
-    if (portailManager.isOpen()) { text = "Le portail s'est ouvert" }
+
+
+function prepareNotificationWithText(text){
     rl.on('line',function(line){
         sendNotification(line,text);
     })
-  }
 }
 
-function sendNotification(line,text){
-  console.log(line + " " + text)
+function sendNotification(token,text){
+  var apn = require('apn');
+  var options = {cert:"PushMyDoorsProdCert.pem",key:"PushMyDoorsProdKey.pem",passphrase:"Escargot35!",production:true};
+  var conn  = new apn.Connection(options)
+  var dev   = new apn.Device(token)
+
+  var note  = new apn.Notification()
+  note.alert = text;
+  conn.pushNotification(note, dev)
+}
+
+console.log("start watching");
+
+if (state != portailManager.isOpen()){
+  console.log("state did change");
+  var text = "🔒Le portail s'est fermé";
+  if (portailManager.isOpen()) { text = "🔓Le portail s'est ouvert" }
+  prepareNotificationWithText(text);
+  state = !state;
 }
