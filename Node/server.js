@@ -3,7 +3,7 @@ var PortailManager = require('./PortailManager.js');
 var portailManager = new PortailManager();
 var constants = require('./Constants.js');
 var fs = require('fs');
-var file = "./uuid":
+var file = "./uuid";
 var token = "";
 
 console.log("Starting Server...");
@@ -25,7 +25,9 @@ io.on('connection', function(socket){
   socket.on('apns-token', function(json, callback) {
     console.log(json);
     if(json.apns_token && json.token == token){
-        updateToken(json.apns_oldToken, json.apns_newToken, callback);
+        updateToken(json.apns_oldToken, json.apns_newToken, function(dict){
+             callback(dict);
+          });
     }else{
         callback({ status:400, error: constants.WRONG_AUTH_MESSAGE});
     }
