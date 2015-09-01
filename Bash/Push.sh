@@ -1,5 +1,6 @@
 #!/bin/sh
 while [ true ]; do
- sudo node ../Node/NotificationManager.js
- sleep 10
+  cd ../Node/
+  sudo node NotificationManager.js
+  sleep 15
 done

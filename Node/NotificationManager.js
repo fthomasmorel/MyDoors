@@ -11,6 +11,7 @@ var options = {cert:"PushMyDoorsProdCert.pem",key:"PushMyDoorsProdKey.pem",passp
 
 var PortailManager = require('./PortailManager.js');
 var portailManager = new PortailManager();
+var state = !portailManager.isOpen();
 
 function prepareNotificationWithText(text){
     rl.on('line',function(line){
@@ -29,9 +30,11 @@ function sendNotification(token,text){
   })
 }
 
-var state = !portailManager.isOpen();
-if (state != portailManager.isOpen()){
-    var text = "🔒Le portail s'est fermé";
-    if (portailManager.isOpen()) { text = "🔓Le portail s'est ouvert" }
-    prepareNotificationWithText(text);
+while(true){
+  if (state != portailManager.isOpen()){
+      var text = "🔒Le portail s'est fermé";
+      if (portailManager.isOpen()) { text = "🔓Le portail s'est ouvert" }
+      prepareNotificationWithText(text);
+      state = portailManager.isOpen();
+  }  
 }
