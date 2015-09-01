@@ -1,5 +1,5 @@
 var apn = require('apn');
-var options = {cert:"PushMyDoorsProdCert.pem",key:"PushMyDoorsProdKey.pem",passphrase:"Escargot35!",production:true};
+var options = {cert:"../Cert/PushMyDoorsProdCert.pem",key:"../Cert/PushMyDoorsProdKey.pem",passphrase:"Escargot35!",production:true};
 
 var PortailManager = require('./PortailManager.js');
 var portailManager = new PortailManager();
