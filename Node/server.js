@@ -74,7 +74,7 @@ function updateToken(oldToken, newToken, handler){
 
   var result = '';
   if(oldToken && data.indexOf(oldToken) > -1) {
-    result = data.replace(/oldToken/g, newToken);
+    result = data.replace(oldToken, newToken);
   }else{
     result = data + newToken+'\n';
   }
