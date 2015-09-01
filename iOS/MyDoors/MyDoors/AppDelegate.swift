@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        NSNotificationCenter.defaultCenter().postNotificationName("apnsTokenDidUpdate", object: nil, userInfo: [kAPNSToken:"\(deviceToken)"])
+        NSNotificationCenter.defaultCenter().postNotificationName("apnsTokenDidUpdate", object: nil, userInfo: [kAPNSNewToken:"\(deviceToken)"])
     }
 
 }

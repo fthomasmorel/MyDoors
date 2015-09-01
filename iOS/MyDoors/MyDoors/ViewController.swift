@@ -240,7 +240,7 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
     //MARK : Notification
     
     func updateAPNSToken(notification:NSNotification){
-        if let token = notification.userInfo![kAPNSToken] as? String {
+        if let token = notification.userInfo![kAPNSNewToken] as? String {
             self.networkManager.sendAPNSToken(token)
         }
     }

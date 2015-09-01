@@ -24,11 +24,11 @@ io.on('connection', function(socket){
 
   socket.on('apns-token', function(json, callback) {
     console.log(json);
-    if(json.apns_token && json.token == token){
-        if(updateToken(json.apns_oldToken, json.apns_newToken){
+    if(json.apns_oldToken && json.apns_newToken && json.token == token){
+        if(updateToken(json.apns_oldToken, json.apns_newToken)){
           callback({ status:200});
         }else{
-          callback({ status:400, error: constants.WRONG_AUTH_MESSAGE});
+          callback({ status:400, error: constants.ERROR_APNS_TOKEN_MESSAGE});
         }
     }else{
         callback({ status:400, error: constants.WRONG_AUTH_MESSAGE});
@@ -75,12 +75,12 @@ function updateToken(oldToken, newToken){
   }
   var result = data.replace(/oldToken/g, newToken);
   if(result == data || data == ""){
-    fs.writeFile(file, newToken+'\n', 'utf8', function (err) {
+    return fs.writeFile(file, data+newToken+'\n', 'utf8', function (err) {
        if (err) return false
        else return true
     });
   }else{
-    fs.writeFile(file, result, 'utf8', function (err) {
+    return fs.writeFile(file, result, 'utf8', function (err) {
        if (err) return false
        else return true
     });
