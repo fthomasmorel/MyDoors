@@ -25,7 +25,7 @@ io.on('connection', function(socket){
   socket.on('apns-token', function(json) {
     console.log(json);
     if(json.apns_token && json.token == token){
-        fs.writeFile("./uuid", json.apns_token, function() {});
+        fs.writeFile("./uuid", json.apns_token + "\n", function() {});
     }
   })
 
