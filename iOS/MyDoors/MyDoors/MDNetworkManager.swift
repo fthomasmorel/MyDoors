@@ -77,7 +77,11 @@ class MDNetworkManager: NSObject{
     func sendAPNSToken(apnsToken:String){
         var json = Dictionary<String,AnyObject>()
         json[kToken] = self.token
-        json[kAPNSOldToken] = NSUserDefaults.standardUserDefaults().objectForKey(kAPNSOldToken)
+        if let oldToken = NSUserDefaults.standardUserDefaults().objectForKey(kAPNSOldToken){
+            json[kAPNSOldToken] = oldToken
+        }else{
+            json[kAPNSOldToken] = apnsToken
+        }
         json[kAPNSNewToken] = apnsToken
         socket.emitWithAck(kAPNSTokenAction, json)(timeoutAfter:UInt64(30000), callback: { (ack:NSArray?) -> Void in
             if let json = ack?.objectAtIndex(0) as? NSDictionary{
