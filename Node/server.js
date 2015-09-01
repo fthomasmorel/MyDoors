@@ -25,9 +25,11 @@ io.on('connection', function(socket){
   socket.on('apns-token', function(json, callback) {
     console.log(json);
     if(json.apns_token && json.token == token){
-        updateToken(json.apns_oldToken, json.apns_newToken, function(dict){
-             callback(dict);
-          });
+        if(updateToken(json.apns_oldToken, json.apns_newToken){
+          callback({ status:200});
+        }else{
+          callback({ status:400, error: constants.WRONG_AUTH_MESSAGE});
+        }
     }else{
         callback({ status:400, error: constants.WRONG_AUTH_MESSAGE});
     }
@@ -66,7 +68,7 @@ function generateToken(){
   return require('crypto').createHash('sha1').update(current_date + random).digest('hex');
 }
 
-function updateToken(oldToken, newToken, callback){
+function updateToken(oldToken, newToken){
   fs.readFile(file, 'utf8', function (err,data) {
   if (err) {
     return console.log(err);
@@ -74,13 +76,13 @@ function updateToken(oldToken, newToken, callback){
   var result = data.replace(/oldToken/g, newToken);
   if(result == data || data == ""){
     fs.writeFile(file, newToken+'\n', 'utf8', function (err) {
-       if (err) return console.log(err);
-       else callback({ status:200});
+       if (err) return false
+       else return true
     });
   }else{
     fs.writeFile(file, result, 'utf8', function (err) {
-       if (err) return console.log(err);
-       else callback({ status:200});
+       if (err) return false
+       else return true
     });
   }
 });

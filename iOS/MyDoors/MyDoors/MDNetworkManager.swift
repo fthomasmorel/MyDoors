@@ -79,7 +79,7 @@ class MDNetworkManager: NSObject{
         json[kToken] = self.token
         json[kAPNSOldToken] = NSUserDefaults.standardUserDefaults().objectForKey(kAPNSOldToken)
         json[kAPNSNewToken] = apnsToken
-        socket.emitWithAck(kAPNSTokenAction, json)(timeoutAfter: UInt64(30000)) { (ack:NSArray?) -> Void in
+        socket.emitWithAck(kAPNSTokenAction, json)(timeoutAfter:UInt64(30000), callback: { (ack:NSArray?) -> Void in
             if let json = ack?.objectAtIndex(0) as? NSDictionary{
                 switch(json[kError] as? String){
                 case (.Some(let error)):
@@ -90,7 +90,8 @@ class MDNetworkManager: NSObject{
                     break
                 }
             }
-        }
+
+        })
     }
 
     //MARK: Private functions
