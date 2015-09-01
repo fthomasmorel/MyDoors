@@ -24,8 +24,10 @@ function sendNotification(token,text){
   var note  = new apn.Notification()
   note.alert = text;
   conn.pushNotification(note, dev)
+  conn.on('completed', function () {
+    conn.shutdown()
+  })
 }
-
 
 var state = !portailManager.isOpen();
 if (state != portailManager.isOpen()){
@@ -33,5 +35,3 @@ if (state != portailManager.isOpen()){
     if (portailManager.isOpen()) { text = "🔓Le portail s'est ouvert" }
     prepareNotificationWithText(text);
 }
-
-process.exit();
