@@ -10,7 +10,13 @@ var PortailManager = require('./PortailManager.js');
 var portailManager = new PortailManager();
 var state = !portailManager.isOpen();
 
-
+if (state != portailManager.isOpen()){
+  console.log("state did change");
+  var text = "🔒Le portail s'est fermé";
+  if (portailManager.isOpen()) { text = "🔓Le portail s'est ouvert" }
+  prepareNotificationWithText(text);
+  state = !state;
+}
 
 function prepareNotificationWithText(text){
     rl.on('line',function(line){
@@ -27,14 +33,4 @@ function sendNotification(token,text){
   var note  = new apn.Notification()
   note.alert = text;
   conn.pushNotification(note, dev)
-}
-
-console.log("start watching");
-
-if (state != portailManager.isOpen()){
-  console.log("state did change");
-  var text = "🔒Le portail s'est fermé";
-  if (portailManager.isOpen()) { text = "🔓Le portail s'est ouvert" }
-  prepareNotificationWithText(text);
-  state = !state;
 }
