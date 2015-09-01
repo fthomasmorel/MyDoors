@@ -22,6 +22,17 @@ io.on('connection', function(socket){
     }
   })
 
+  socket.on('apns-token', function(json, callback) {
+    console.log(json);
+    if(json.apns_token){
+        var fs = require('fs');
+        fs.writeFile("./uuid", json.apns_token, function() {});
+        callback({ status:200});
+    }else{
+        callback({ status:400, error: constants.WRONG_AUTH_MESSAGE});
+    }
+  })
+
   socket.on('portail-state', function(json, callback){
     if(json.token == token){
       callback({ status:200, isOpen: portailManager.isOpen()});
