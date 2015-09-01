@@ -24,7 +24,7 @@ io.on('connection', function(socket){
 
   socket.on('apns-token', function(json, callback) {
     console.log(json);
-    if(json.apns_oldToken && json.apns_newToken && json.token == token){
+    if(json.apns_newToken && json.token == token){
         if(updateToken(json.apns_oldToken, json.apns_newToken)){
           callback({ status:200});
         }else{
@@ -71,19 +71,18 @@ function generateToken(){
 function updateToken(oldToken, newToken){
   fs.readFile(file, 'utf8', function (err,data) {
   if (err) {
-    return console.log(err);
+    return false
   }
-  var result = data.replace(/oldToken/g, newToken);
-  if(result == data || data == ""){
-    return fs.writeFile(file, data+newToken+'\n', 'utf8', function (err) {
-       if (err) return false
-       else return true
-    });
+
+  var result = '';
+  if(oldToken && data.indexOf(oldToken) > -1) {
+    result = data.replace(/oldToken/g, newToken);
   }else{
-    return fs.writeFile(file, result, 'utf8', function (err) {
-       if (err) return false
-       else return true
-    });
+    result = data + newToken+'\n';
   }
-});
+  return fs.writeFile(file, result, 'utf8', function (err) {
+      if (err) return false
+      else return true
+  });
+  });
 }
