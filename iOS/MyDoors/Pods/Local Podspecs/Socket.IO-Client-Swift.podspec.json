@@ -1,8 +1,9 @@
 {
   "name": "Socket.IO-Client-Swift",
-  "version": "2.4.3",
+  "module_name": "SocketIO",
+  "version": "8.1.2",
   "summary": "Socket.IO-client for iOS and OS X",
-  "description": "Socket.IO-client for iOS and OS X.\nSupports ws/wss/polling connections and binary.\nFor socket.io 1.0+ and Swift 1.2.",
+  "description": "Socket.IO-client for iOS and OS X.\nSupports ws/wss/polling connections and binary.\nFor socket.io 1.0+ and Swift.",
   "homepage": "https://github.com/socketio/socket.io-client-swift",
   "license": {
     "type": "MIT"
@@ -12,12 +13,16 @@
   },
   "platforms": {
     "ios": "8.0",
-    "osx": "10.10"
+    "osx": "10.10",
+    "tvos": "9.0"
   },
   "source": {
     "git": "https://github.com/socketio/socket.io-client-swift.git",
-    "tag": "v2.4.3"
+    "tag": "v8.1.2"
   },
-  "source_files": "SocketIOClientSwift/**/*.swift",
-  "requires_arc": true
+  "source_files": "Source/**/*.swift",
+  "requires_arc": true,
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "3.0"
+  }
 }

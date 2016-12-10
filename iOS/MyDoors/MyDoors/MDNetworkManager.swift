@@ -1,4 +1,4 @@
-//
+ //
 //  MDNetworkManager.swift
 //  MyDoors
 //
@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Socket_IO_Client_Swift
+import SocketIO
 
 //App Transport Security has blocked a cleartext HTTP (http://) resource load since it is insecure. Temporary exceptions can be configured via your app's Info.plist file.
 
@@ -15,9 +15,9 @@ import Socket_IO_Client_Swift
 
 protocol MDNetworkManagerDelegate{
     func didConnect()
-    func didFailConnected(error:String)
-    func didReceivedData(json:Dictionary<String, AnyObject>)
-    func didReceivedState(json:Dictionary<String, AnyObject>)
+    func didFailConnected(_ error:String)
+    func didReceivedData(_ json:Dictionary<String, AnyObject>)
+    func didReceivedState(_ json:Dictionary<String, AnyObject>)
 }
 
 //MARK: Constants declaration
@@ -47,7 +47,8 @@ class MDNetworkManager: NSObject{
     
     init(withDelegate delegate:MDNetworkManagerDelegate){
         super.init()
-        self.socket = SocketIOClient(socketURL: NSUserDefaults.standardUserDefaults().objectForKey(kHost) as! String)
+        let url = URL(string: "https://mydoors.thomasmorel.io/")
+        self.socket = SocketIOClient(socketURL: url!)
         self.delegate = delegate
         self.connect()
     }
@@ -66,31 +67,33 @@ class MDNetworkManager: NSObject{
     
     func sendAction(){
         var json = Dictionary<String,AnyObject>()
-        json[kToken] = self.token
-        socket.emitWithAck(kPortailAction, json)(timeoutAfter:UInt64(30000), callback: { (ack:NSArray?) -> Void in
+        json[kToken] = self.token as AnyObject?
+        socket.emitWithAck(kPortailAction, json).timingOut(after: 30000, callback: { (ack:Array<Any>?) -> Void in
             if let res = ack {
                 self.onAckAction(res[0] as! Dictionary<String, AnyObject>)
             }
         })
     }
     
-    func sendAPNSToken(apnsToken:String){
+    func sendAPNSToken(_ apnsToken:String){
         var json = Dictionary<String,AnyObject>()
-        json[kToken] = self.token
-        if let oldToken = NSUserDefaults.standardUserDefaults().objectForKey(kAPNSOldToken) as? String{
-            json[kAPNSOldToken] = oldToken + "sqfsqdf"
+        json[kToken] = self.token as AnyObject?
+        if let oldToken = UserDefaults.standard.object(forKey: kAPNSOldToken) as? String{
+            json[kAPNSOldToken] = oldToken as AnyObject?
         }else{
-            json[kAPNSOldToken] = apnsToken
+            json[kAPNSOldToken] = apnsToken as AnyObject?
         }
-        json[kAPNSNewToken] = apnsToken + "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        socket.emitWithAck(kAPNSTokenAction, json)(timeoutAfter:UInt64(30000), callback: { (ack:NSArray?) -> Void in
-            if let json = ack?.objectAtIndex(0) as? NSDictionary{
+        json[kAPNSNewToken] = apnsToken as AnyObject?
+        
+        socket.emitWithAck(kAPNSTokenAction, json).timingOut(after: 30000, callback: { (ack:Array<Any>?) -> Void in
+            
+            if let json = ack?[0] as? NSDictionary{
                 switch(json[kError] as? String){
-                case (.Some(let error)):
+                case (.some(let error)):
                     print(error)
                     break
-                case (.None):
-                    NSUserDefaults.standardUserDefaults().setObject(apnsToken, forKey: kAPNSOldToken)
+                case (.none):
+                    UserDefaults.standard.set(apnsToken, forKey: kAPNSOldToken)
                     break
                 }
             }
@@ -100,55 +103,54 @@ class MDNetworkManager: NSObject{
 
     //MARK: Private functions
     
-    private func auth(){
+    fileprivate func auth(){
         var json = Dictionary<String,AnyObject>()
-        json[kAuthKey] = NSUserDefaults.standardUserDefaults().objectForKey(kAuthKey) as! String
+        json[kAuthKey] = UserDefaults.standard.object(forKey: kAuthKey) as! String as AnyObject?
         
-        socket.emitWithAck(kAuthAction, json)(timeoutAfter: UInt64(30000)) { (ack:NSArray?) -> Void in
-            if let json = ack?.objectAtIndex(0) as? NSDictionary{
+        socket.emitWithAck(kAuthAction, json).timingOut(after: 30000, callback: { (ack:Array<Any>?) -> Void in
+            if let json = ack?[0] as? NSDictionary{
                 switch(json[kError] as? String,json[kToken] as? String){
-                case (.Some(let error), .Some):
+                case (.some(let error), .some):
                     self.onAckAuthWithError(error)
-                case (.None, .Some(let token)):
+                case (.none, .some(let token)):
                     self.onAckAuthWithToken(token)
                 default:
                     print("Unkown error")
                 }
             }
-        }
-        
+        })
     }
 
     
-    private func getState(){
+    fileprivate func getState(){
         var json = Dictionary<String,AnyObject>()
-        json[kToken] = self.token
-        socket.emitWithAck(kPortailState, json)(timeoutAfter:UInt64(30000), callback: { (ack:NSArray?) -> Void in
+        json[kToken] = self.token as AnyObject?
+        socket.emitWithAck(kPortailState, json).timingOut(after: 30000, callback: { (ack:Array<Any>?) -> Void in
             if let res = ack {
                 self.onAckState(res[0] as! Dictionary<String, AnyObject>)
             }
         })
     }
     
-    private func onAckState(json:Dictionary<String, AnyObject>){
+    fileprivate func onAckState(_ json:Dictionary<String, AnyObject>){
         delegate.didReceivedState(json)
     }
     
-    private func onAckAction(json:Dictionary<String, AnyObject>){
+    fileprivate func onAckAction(_ json:Dictionary<String, AnyObject>){
         delegate.didReceivedData(json)
     }
     
-    private func onAckAuthWithError(error:String){
+    fileprivate func onAckAuthWithError(_ error:String){
         delegate.didFailConnected(error)
     }
     
-    private func onAckAuthWithToken(token:String){
+    fileprivate func onAckAuthWithToken(_ token:String){
         self.token = token
         delegate.didConnect()
         self.getState()
     }
     
-    private func onConnect(){
+    fileprivate func onConnect(){
         self.auth()
     }
 }

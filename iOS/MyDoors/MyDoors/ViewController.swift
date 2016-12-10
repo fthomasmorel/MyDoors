@@ -9,7 +9,7 @@
 import UIKit
 import QRCodeReader
 
-class ViewController: UIViewController, MDNetworkManagerDelegate {
+class ViewController: UIViewController, MDNetworkManagerDelegate, CAAnimationDelegate {
 
     //MARK: Attributes
     
@@ -30,28 +30,28 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initQRReader()
-        self.button.addTarget(self, action: "startCircleAnimation", forControlEvents: UIControlEvents.TouchDown)
-        self.button.addTarget(self, action: "endCircleAnimation", forControlEvents: UIControlEvents.TouchUpInside)
-        NSNotificationCenter.defaultCenter().addObserver(
+        self.button.addTarget(self, action: #selector(ViewController.startCircleAnimation), for: UIControlEvents.touchDown)
+        self.button.addTarget(self, action: #selector(ViewController.endCircleAnimation), for: UIControlEvents.touchUpInside)
+        NotificationCenter.default.addObserver(
             self,
-            selector: "updateAPNSToken:",
-            name: "apnsTokenDidUpdate",
+            selector: #selector(ViewController.updateAPNSToken(_:)),
+            name: NSNotification.Name(rawValue: "apnsTokenDidUpdate"),
             object: nil)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        if !((NSUserDefaults.standardUserDefaults().objectForKey(kAuthKey)) != nil) {
-            self.presentViewController(reader, animated: true) { () -> Void in
+    override func viewDidAppear(_ animated: Bool) {
+        if !((UserDefaults.standard.object(forKey: kAuthKey)) != nil) {
+            self.present(reader, animated: true) { () -> Void in
                 
                 let filter = UIImageView(frame: self.reader.view.frame)
                 filter.image = UIImage(named: "filter")
-                filter.contentMode = UIViewContentMode.ScaleToFill
+                filter.contentMode = UIViewContentMode.scaleToFill
                 
                 self.reader.view.addSubview(filter)
             }
         }else{
             self.networkManager = MDNetworkManager(withDelegate: self)
-//            self.networkManager.connect()
+            self.networkManager.connect()
         }
         
         self.initView()
@@ -62,7 +62,7 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if(flag){
             self.openDoor()
         }
@@ -70,12 +70,12 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
     
     //MARK : Private
     
-    private func updateLabelText(){
-        let today = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([NSCalendarUnit.Hour, NSCalendarUnit.Minute], fromDate: today)
-        let hour = String(format: "%02d", components.hour)
-        let minutes = String(format: "%02d", components.minute)
+    fileprivate func updateLabelText(){
+        let today = Date()
+        let calendar = Calendar.current
+        let components = (calendar as NSCalendar).components([NSCalendar.Unit.hour, NSCalendar.Unit.minute], from: today)
+        let hour = String(format: "%02d", components.hour!)
+        let minutes = String(format: "%02d", components.minute!)
         updateLabel.text = "last update : \(hour):\(minutes)"
     }
     
@@ -85,19 +85,18 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
         reader.resultCallback = {
             print($1)
             do{
-                let data = ($1).dataUsingEncoding(NSUTF8StringEncoding)!
-                if let res: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) {
-                    if let json = res as? NSDictionary, let id = json[kId] as? NSString{
-                        if id == "com.thomasmorel.florent.MyDoors" {
-                            NSUserDefaults.standardUserDefaults().setObject(json[kHost], forKey: kHost)
-                            NSUserDefaults.standardUserDefaults().setObject(json[kAuthKey], forKey: kAuthKey)
-                        }
+                let data = ($1).data(using: String.Encoding.utf8)!
+                let res = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
+                if let json = res as? NSDictionary, let id = json[kId] as? NSString{
+                    if id == "com.thomasmorel.florent.MyDoors" {
+                        UserDefaults.standard.set(json[kHost], forKey: kHost)
+                        UserDefaults.standard.set(json[kAuthKey], forKey: kAuthKey)
                     }
                 }
             }catch let error{
                 print(error)
             }
-            $0.dismissViewControllerAnimated(true, completion: nil)
+            $0.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -107,13 +106,13 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
     func initView(){
         let radius = CGFloat(62)
         self.circle = CAShapeLayer()
-        let bezier:UIBezierPath = (UIBezierPath(roundedRect: (rect: CGRectMake(0, 0, 2*radius, 2*radius)), cornerRadius: radius))
-        self.circle.path = bezier.CGPath
-        let x = (CGRectGetMidX(self.button.frame)-radius)
-        let y = (CGRectGetMidY(self.button.frame)-radius) + self.panel.frame.origin.y
-        self.circle.position = CGPointMake(x,y)
-        self.circle.fillColor = UIColor.clearColor().CGColor;
-        self.circle.strokeColor = self.button.titleLabel?.textColor.CGColor;
+        let bezier:UIBezierPath = (UIBezierPath(roundedRect: (rect: CGRect(x: 0, y: 0, width: 2*radius, height: 2*radius)), cornerRadius: radius))
+        self.circle.path = bezier.cgPath
+        let x = (self.button.frame.midX-radius)
+        let y = (self.button.frame.midY-radius) + self.panel.frame.origin.y
+        self.circle.position = CGPoint(x: x,y: y)
+        self.circle.fillColor = UIColor.clear.cgColor;
+        self.circle.strokeColor = self.button.titleLabel?.textColor.cgColor;
         self.circle.lineWidth = 5;
         self.circle.strokeEnd = 0.0;
         self.view.layer.addSublayer(self.circle);
@@ -121,32 +120,32 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
     }
 
     func startAnimatingLoader(){
-        border.hidden = false
+        border.isHidden = false
         let fullRotation = CGFloat(M_PI * 2)
         let animation = CAKeyframeAnimation()
         animation.keyPath = "transform.rotation.z"
         animation.duration = 1.2
-        animation.removedOnCompletion = false
+        animation.isRemovedOnCompletion = false
         animation.fillMode = kCAFillModeForwards
         animation.repeatCount = Float.infinity
         animation.values = [0, fullRotation/4, fullRotation/2, fullRotation*3/4, fullRotation]
-        border.layer.addAnimation(animation, forKey: "rotate")
+        border.layer.add(animation, forKey: "rotate")
     }
     
     func stopAnimatingLoader(){
         border.layer.removeAllAnimations()
-        border.hidden = true
+        border.isHidden = true
     }
     
     func circleAnimation(){
         self.drawAnimation = CABasicAnimation(keyPath:"strokeEnd")
         self.drawAnimation.duration            = 1.0;
         self.drawAnimation.repeatCount         = 1.0;
-        self.drawAnimation.fromValue = NSNumber(float: 0)
-        self.drawAnimation.toValue   = NSNumber(float: 1)
+        self.drawAnimation.fromValue = NSNumber(value: 0 as Float)
+        self.drawAnimation.toValue   = NSNumber(value: 1 as Float)
         self.drawAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         self.drawAnimation.delegate = self
-        self.circle.addAnimation(self.drawAnimation, forKey:"draw")
+        self.circle.add(self.drawAnimation, forKey:"draw")
     }
     
     func startCircleAnimation(){
@@ -159,23 +158,23 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
         self.circle.removeFromSuperlayer()
         self.initView()
         
-        if(self.border.hidden){
+        if(self.border.isHidden){
             self.startAnimatingLoader()
         }
     }
     
-    func pauseLayer(layer:CALayer){
-        let pausedTime:CFTimeInterval = layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
+    func pauseLayer(_ layer:CALayer){
+        let pausedTime:CFTimeInterval = layer.convertTime(CACurrentMediaTime(), from: nil)
         layer.speed = 0.0;
         layer.timeOffset = pausedTime;
     }
     
-    func resumeLayer(layer:CALayer){
+    func resumeLayer(_ layer:CALayer){
         let pausedTime:CFTimeInterval = layer.timeOffset;
         layer.speed = 1.0;
         layer.timeOffset = 0.0;
         layer.beginTime = 0.0;
-        let timeSincePause:CFTimeInterval = layer.convertTime(CACurrentMediaTime(), fromLayer:nil) - pausedTime;
+        let timeSincePause:CFTimeInterval = layer.convertTime(CACurrentMediaTime(), from:nil) - pausedTime;
         layer.beginTime = timeSincePause;
     }
     
@@ -187,18 +186,18 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
         self.startAnimatingLoader()
     }
     
-    @IBAction func showQRReader(sender: AnyObject) {
-        self.presentViewController(reader, animated: true) { () -> Void in
+    @IBAction func showQRReader(_ sender: AnyObject) {
+        self.present(reader, animated: true) { () -> Void in
             
             let arrow = UIButton()
-            arrow.setImage(UIImage(named: "arrow"), forState: .Normal)
+            arrow.setImage(UIImage(named: "arrow"), for: UIControlState())
             arrow.sizeToFit()
-            arrow.frame = CGRectMake(20, 20, arrow.frame.size.width, arrow.frame.size.height)
-            arrow.addTarget(self, action: "hideQRReader:", forControlEvents: UIControlEvents.TouchUpInside)
+            arrow.frame = CGRect(x: 20, y: 20, width: arrow.frame.size.width, height: arrow.frame.size.height)
+            arrow.addTarget(self, action: #selector(ViewController.hideQRReader(_:)), for: UIControlEvents.touchUpInside)
             
             let filter = UIImageView(frame: self.reader.view.frame)
             filter.image = UIImage(named: "filter")
-            filter.contentMode = UIViewContentMode.ScaleToFill
+            filter.contentMode = UIViewContentMode.scaleToFill
             
             self.reader.view.addSubview(filter)
             self.reader.view.addSubview(arrow)
@@ -206,49 +205,49 @@ class ViewController: UIViewController, MDNetworkManagerDelegate {
 
     }
     
-    func hideQRReader(sender: AnyObject){
-        self.reader.dismissViewControllerAnimated(true, completion: nil)
+    func hideQRReader(_ sender: AnyObject){
+        self.reader.dismiss(animated: true, completion: nil)
     }
     
     //MARK: MDNetworkManagerDelegate methods
     
     func didConnect(){
         self.updateLabelText()
-        UIApplication.sharedApplication().registerForRemoteNotifications()
+        UIApplication.shared.registerForRemoteNotifications()
     }
     
-    func didFailConnected(error:String){
-        print(error, appendNewline: false)
+    func didFailConnected(_ error:String){
+        //print(error, appendNewline: false)
     }
     
-    func didReceivedData(json:Dictionary<String, AnyObject>){
+    func didReceivedData(_ json:Dictionary<String, AnyObject>){
         if let isOpen = json["isOpen"] as? Bool {
             let title = (isOpen ? kClose : kOpen)
-            self.button.setTitle(title, forState: .Normal)
+            self.button.setTitle(title, for: UIControlState())
             self.updateLabelText()
         }
     }
     
-    func didReceivedState(json:Dictionary<String, AnyObject>){
+    func didReceivedState(_ json:Dictionary<String, AnyObject>){
         if let isOpen = json["isOpen"] as? Bool {
             let title = (isOpen ? kClose : kOpen)
-            self.button.setTitle(title, forState: .Normal)
+            self.button.setTitle(title, for: UIControlState())
             self.updateLabelText()
         }
     }
     
     //MARK : Notification
     
-    func updateAPNSToken(notification:NSNotification){
-        if let token = notification.userInfo![kAPNSNewToken] as? String {
+    func updateAPNSToken(_ notification:Notification){
+        if let token = (notification as NSNotification).userInfo![kAPNSNewToken] as? String {
             self.networkManager.sendAPNSToken(token)
         }
     }
     
     
 
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
 }
 

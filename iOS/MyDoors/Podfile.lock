@@ -1,34 +1,30 @@
 PODS:
+  - Alamofire (4.2.0)
   - QRCodeReader (1.2)
-  - ReachabilitySwift (2.0-beta3)
-  - Socket.IO-Client-Swift (2.4.3)
+  - ReachabilitySwift (3)
+  - Socket.IO-Client-Swift (8.1.2)
 
 DEPENDENCIES:
+  - Alamofire
   - QRCodeReader
-  - ReachabilitySwift (from `https://github.com/ashleymills/Reachability.swift.git`,
-    branch `2.0-beta3`)
-  - Socket.IO-Client-Swift (from `https://github.com/socketio/socket.io-client-swift.git`,
-    branch `swift-2`)
+  - ReachabilitySwift (~> 3)
+  - Socket.IO-Client-Swift (from `https://github.com/socketio/socket.io-client-swift.git`)
 
 EXTERNAL SOURCES:
-  ReachabilitySwift:
-    :branch: 2.0-beta3
-    :git: https://github.com/ashleymills/Reachability.swift.git
   Socket.IO-Client-Swift:
-    :branch: swift-2
     :git: https://github.com/socketio/socket.io-client-swift.git
 
 CHECKOUT OPTIONS:
-  ReachabilitySwift:
-    :commit: e41475caeb88f8e5612a4e08e1e7a4cd312cf126
-    :git: https://github.com/ashleymills/Reachability.swift.git
   Socket.IO-Client-Swift:
-    :commit: 8dc7121355ab47b512383b2798bff41783a18ab9
+    :commit: 163a770abc4842250d31b8662354d0df190c2885
     :git: https://github.com/socketio/socket.io-client-swift.git
 
 SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   QRCodeReader: be8d663cd428ab4cc2583ef568b93f8e9462e43e
-  ReachabilitySwift: 3e14519fb02138a7f0c9604cab990f5ae1eb1f8a
-  Socket.IO-Client-Swift: 4a7170cb0572a8490588ea1bc9e76f5dafc8150d
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+  Socket.IO-Client-Swift: 9e58dcad44a57b5f44adbc09dff9f2d5359d1305
 
-COCOAPODS: 0.38.2
+PODFILE CHECKSUM: ee8ca6082b3f903e043eab990d93d4984f3ec568
+
+COCOAPODS: 1.1.0.rc.1

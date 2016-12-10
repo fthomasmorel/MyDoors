@@ -47,31 +47,31 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
         self.title = "QR Code"
     }
     
-    public required init?(coder aDecoder: NSCoder) {
+    public required init(coder aDecoder: NSCoder) {
         self.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         // Config
-        self.view.backgroundColor = UIColor.blackColor()
+        self.view.backgroundColor = UIColor.black
         
         // Gestures
         let torchGesture = UILongPressGestureRecognizer(target: self, action: Selector("handleTorchRecognizerTap:"))
         torchGesture.minimumPressDuration = torchLevel
         let swipeDownGesture = UISwipeGestureRecognizer(target: self, action: "handleSwipeDown:")
-        swipeDownGesture.direction = .Down
+        swipeDownGesture.direction = .down
         
         self.view.addGestureRecognizer(torchGesture)
         self.view.addGestureRecognizer(swipeDownGesture)
     }
     
-    public override func viewWillAppear(animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if let _ = cancelCallback {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: Selector("cancelItemSelected:"))
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: Selector("cancelItemSelected:"))
         } else {
             self.navigationItem.leftBarButtonItem = nil
             
@@ -94,33 +94,35 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
         avVideoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill;
         avVideoPreviewLayer?.frame = self.view.bounds;
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-            self.avDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        DispatchQueue.global(qos: .background).async {
+            self.avDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
             
             if let session = self.avSession, let device = self.avDevice {
                 // AVCaptureDevice
                 try! device.lockForConfiguration()
-//                device.automaticallyEnablesLowLightBoostWhenAvailable = true
-                device.unlockForConfiguration()
-
+                if device.isLowLightBoostSupported {
+                    device.automaticallyEnablesLowLightBoostWhenAvailable = true
+                    device.unlockForConfiguration()
+                }
                 
                 session.beginConfiguration()
                 
-//                var error: NSError?
-                do{
-                    let input = try AVCaptureDeviceInput(device: device)
-                    session.addInput(input)
-                }catch _{
-                    session.commitConfiguration()
-                    /*
-                    if let performError = self.errorCallback {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            session.stopRunning()
-                            performError(self, e)
-                        }
-                    }*/
-                    return
-                }
+                var input = try! AVCaptureDeviceInput(device: device)
+                
+//                if let e = error {
+//                    print("QRCodeReaderViewController: Error getting input device: \(e)")
+//                    session.commitConfiguration()
+//                    
+//                    if let performError = self.errorCallback {
+//                        DispatchQueue.main.async {
+//                            session.stopRunning()
+//                            performError(self, e)
+//                        }
+//                    }
+//                    return
+//                }
+                
+                session.addInput(input)
                 
                 let output = AVCaptureMetadataOutput()
                 
@@ -130,7 +132,7 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
                     // FIXME: Forced unwrap
                     if !(output.availableMetadataObjectTypes as! [String]).contains(type) {
                         if let performError = self.errorCallback {
-                            dispatch_async(dispatch_get_main_queue()) {
+                            DispatchQueue.main.async {
                                 session.stopRunning()
                                 performError(self, NSError(domain: self.errorDomain, code: QRCodeReaderViewControllerErrorCodes.UnavailableMetadataObjectType.rawValue, userInfo: [NSLocalizedDescriptionKey : "Unable to scan object of type \(type)"]))
                             }
@@ -140,13 +142,13 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
                 }
                 
                 output.metadataObjectTypes = self.metadataObjectTypes
-                output.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+                output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
                 
                 session.commitConfiguration()
                 
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     if let videoLayer = self.avVideoPreviewLayer, let conn = videoLayer.connection {
-                        if conn.supportsVideoOrientation {
+                        if conn.isVideoOrientationSupported {
                             //conn.videoOrientation = videoOrientationFromDeviceOrientation(UIDevice.currentDevice().orientation);
                         }
                     }
@@ -159,7 +161,7 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
         self.view.layer.addSublayer(self.avVideoPreviewLayer!)
     }
     
-    public override func viewWillDisappear(animated: Bool) {
+    public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         avVideoPreviewLayer?.removeFromSuperlayer();
         avVideoPreviewLayer = nil;
@@ -167,39 +169,39 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
         avDevice = nil;
     }
     
-    public override func prefersStatusBarHidden() -> Bool {
+    public override var prefersStatusBarHidden: Bool {
         return true
     }
     
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         avVideoPreviewLayer?.bounds = self.view.bounds;
-        avVideoPreviewLayer?.position = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
+        avVideoPreviewLayer?.position = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY);
     }
     
-    public override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         
         // The device has already rotated, that's why this method is being called
         if let videoLayer = self.avVideoPreviewLayer, let conn = videoLayer.connection {
-            if conn.supportsVideoOrientation {
-                conn.videoOrientation = self.videoOrientationFromDeviceOrientation(UIDevice.currentDevice().orientation);
+            if conn.isVideoOrientationSupported {
+                conn.videoOrientation = self.videoOrientationFromDeviceOrientation(orientation: UIDevice.current.orientation);
             }
         }
     }
     
     private func videoOrientationFromDeviceOrientation(orientation: UIDeviceOrientation) -> AVCaptureVideoOrientation {
         switch (orientation) {
-        case .Portrait:
-            return AVCaptureVideoOrientation.Portrait
-        case .LandscapeLeft:
-            return AVCaptureVideoOrientation.LandscapeRight
-        case .LandscapeRight:
-            return AVCaptureVideoOrientation.LandscapeLeft
-        case .PortraitUpsideDown:
-            return AVCaptureVideoOrientation.PortraitUpsideDown
+        case .portrait:
+            return AVCaptureVideoOrientation.portrait
+        case .landscapeLeft:
+            return AVCaptureVideoOrientation.landscapeRight
+        case .landscapeRight:
+            return AVCaptureVideoOrientation.landscapeLeft
+        case .portraitUpsideDown:
+            return AVCaptureVideoOrientation.portraitUpsideDown
         default:
-            return AVCaptureVideoOrientation.Portrait
+            return AVCaptureVideoOrientation.portrait
         }
     }
     
@@ -207,23 +209,25 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
     // MARK: UI Actions
     
     func cancelItemSelected(sender: AnyObject) {
-        avSession?.stopRunning()
+        avSession?.stopRunning();
         cancelCallback?(self);
     }
     
     func handleSwipeDown(sender: UIGestureRecognizer) {
-     //   avSession?.stopRunning()
-     //   cancelCallback?(self);
+        avSession?.stopRunning();
+        cancelCallback?(self);
     }
     
     func handleTorchRecognizerTap(sender: UIGestureRecognizer) {
         switch(sender.state) {
-        case UIGestureRecognizerState.Began:
+        case UIGestureRecognizerState.began:
             turnTorchOn()
-        case UIGestureRecognizerState.Changed, UIGestureRecognizerState.Possible:
+        case UIGestureRecognizerState.changed, UIGestureRecognizerState.possible:
             break
-        case UIGestureRecognizerState.Ended, UIGestureRecognizerState.Cancelled, UIGestureRecognizerState.Failed:
+        case UIGestureRecognizerState.ended, UIGestureRecognizerState.cancelled, UIGestureRecognizerState.failed:
             turnTorchOff()
+        default:
+            break
         }
     }
     
@@ -232,27 +236,20 @@ public class QRCodeReaderViewController: UIViewController, AVCaptureMetadataOutp
     
     func turnTorchOn() {
         if let device = avDevice {
-            do{
-                try device.lockForConfiguration()
-                if device.hasTorch && device.torchAvailable && device.isTorchModeSupported(.On){
-                    try device.setTorchModeOnWithLevel(fTorchLevel)
-                }
+            try! device.lockForConfiguration()
+            if device.hasTorch && device.isTorchAvailable && device.isTorchModeSupported(.on) {
+                try! device.setTorchModeOnWithLevel(fTorchLevel)
                 device.unlockForConfiguration()
-            }catch _{
             }
         }
     }
     
     func turnTorchOff() {
         if let device = avDevice {
-            do{
-                try device.lockForConfiguration()
-                if device.hasTorch && device.torchAvailable && device.isTorchModeSupported(.Off) {
-                    device.torchMode = .Off
-                }
+            try! device.lockForConfiguration()
+            if device.hasTorch && device.isTorchAvailable && device.isTorchModeSupported(.off){
+                device.torchMode = .off
                 device.unlockForConfiguration()
-            }catch _{
-                
             }
         }
     }

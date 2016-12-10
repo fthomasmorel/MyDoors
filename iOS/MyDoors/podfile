@@ -1,8 +1,17 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+#platform :ios, '10.0'
 use_frameworks!
 
-pod 'Socket.IO-Client-Swift', :git => 'https://github.com/socketio/socket.io-client-swift.git', :branch => 'swift-2'
-#pod 'Socket.IO-Client-Swift', :git => 'https://github.com/ricardopereira/SocketIO-Kit.git', :branch => 'Swift2'
-pod 'QRCodeReader'
-pod 'ReachabilitySwift', :git => 'https://github.com/ashleymills/Reachability.swift.git', :branch => '2.0-beta3'
+target "MyDoors" do
+    platform :ios, '10.0'
+    pod 'Socket.IO-Client-Swift', :git => 'https://github.com/socketio/socket.io-client-swift.git'
+    #pod 'Socket.IO-Client-Swift', :git => 'https://github.com/ricardopereira/SocketIO-Kit.git', :branch => 'Swift2'
+    pod 'QRCodeReader'
+    pod 'ReachabilitySwift', '~> 3'
+end
+
+target 'MyDoorsWatch Extension' do
+    platform :watchos, '3.0'
+    #pod 'Socket.IO-Client-Swift', :git => 'https://github.com/socketio/socket.io-client-swift.git'
+    pod 'Alamofire'
+end

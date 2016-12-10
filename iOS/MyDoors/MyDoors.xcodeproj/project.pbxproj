@@ -7,7 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DF415A115637CD2B2AF8315C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1F12F75F9C5D1667B113AF /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		76B4ADAA9ED81E20921A60A5 /* Pods_MyDoorsWatch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1F0654B2B0909435E101FB /* Pods_MyDoorsWatch_Extension.framework */; };
+		E1717CE31DF9B58E00955653 /* Pods_MyDoorsWatch_Extension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1F0654B2B0909435E101FB /* Pods_MyDoorsWatch_Extension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E1BA59251DF89BAE00C91A06 /* Pods_MyDoors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B331411BDDBDA39F404ABB3C /* Pods_MyDoors.framework */; };
+		E1BA59261DF89BAE00C91A06 /* Pods_MyDoors.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B331411BDDBDA39F404ABB3C /* Pods_MyDoors.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E1BA592D1DF89C4900C91A06 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1BA592B1DF89C4900C91A06 /* Interface.storyboard */; };
+		E1BA592F1DF89C4900C91A06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1BA592E1DF89C4900C91A06 /* Assets.xcassets */; };
+		E1BA59361DF89C4900C91A06 /* MyDoorsWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E1BA59351DF89C4900C91A06 /* MyDoorsWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E1BA593D1DF89C4900C91A06 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA593C1DF89C4900C91A06 /* InterfaceController.swift */; };
+		E1BA593F1DF89C4900C91A06 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA593E1DF89C4900C91A06 /* ExtensionDelegate.swift */; };
+		E1BA59411DF89C4900C91A06 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA59401DF89C4900C91A06 /* NotificationController.swift */; };
+		E1BA59431DF89C4900C91A06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1BA59421DF89C4900C91A06 /* Assets.xcassets */; };
+		E1BA59471DF89C4900C91A06 /* MyDoorsWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E1BA59291DF89C4900C91A06 /* MyDoorsWatch.app */; };
 		F5835BB71B4DB4A1001B6B9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5835BB61B4DB4A1001B6B9F /* AppDelegate.swift */; };
 		F5835BB91B4DB4A1001B6B9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5835BB81B4DB4A1001B6B9F /* ViewController.swift */; };
 		F5835BBC1B4DB4A1001B6B9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5835BBA1B4DB4A1001B6B9F /* Main.storyboard */; };
@@ -15,11 +26,23 @@
 		F5835BC11B4DB4A1001B6B9F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5835BBF1B4DB4A1001B6B9F /* LaunchScreen.xib */; };
 		F5835BCD1B4DB4A1001B6B9F /* MyDoorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5835BCC1B4DB4A1001B6B9F /* MyDoorsTests.swift */; };
 		F5B677901B4EFA9E0020FF00 /* MDNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B6778F1B4EFA9E0020FF00 /* MDNetworkManager.swift */; };
-		F5EBDBBA1B7F6B0C005FB73D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1F12F75F9C5D1667B113AF /* Pods.framework */; };
-		F5EBDBBB1B7F6B0C005FB73D /* Pods.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1F12F75F9C5D1667B113AF /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E1BA59371DF89C4900C91A06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5835BA91B4DB4A1001B6B9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1BA59341DF89C4900C91A06;
+			remoteInfo = "MyDoorsWatch Extension";
+		};
+		E1BA59451DF89C4900C91A06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5835BA91B4DB4A1001B6B9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1BA59281DF89C4900C91A06;
+			remoteInfo = MyDoorsWatch;
+		};
 		F5835BC71B4DB4A1001B6B9F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F5835BA91B4DB4A1001B6B9F /* Project object */;
@@ -30,13 +53,46 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		E1BA594B1DF89C4900C91A06 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E1BA59361DF89C4900C91A06 /* MyDoorsWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1BA594F1DF89C4900C91A06 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				E1BA59471DF89C4900C91A06 /* MyDoorsWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1BA59541DF8A62D00C91A06 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E1717CE31DF9B58E00955653 /* Pods_MyDoorsWatch_Extension.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F5EBDBBC1B7F6B0C005FB73D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F5EBDBBB1B7F6B0C005FB73D /* Pods.framework in Embed Frameworks */,
+				E1BA59261DF89BAE00C91A06 /* Pods_MyDoors.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,8 +100,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E1F0654B2B0909435E101FB /* Pods_MyDoorsWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyDoorsWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13D8AEB6DEFDED4AB9D5D3E2 /* Pods-MyDoorsWatch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDoorsWatch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyDoorsWatch Extension/Pods-MyDoorsWatch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		4F1F12F75F9C5D1667B113AF /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E6DF12FC760CBBE2B957A24 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		623C046E0074CB04F410E03D /* Pods-MyDoors.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDoors.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyDoors/Pods-MyDoors.debug.xcconfig"; sourceTree = "<group>"; };
+		79493D192F6B97EA17B1BFC5 /* Pods-MyDoorsWatch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDoorsWatch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyDoorsWatch Extension/Pods-MyDoorsWatch Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		9EE44DBCEA239503F81886C4 /* Pods-MyDoors.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDoors.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyDoors/Pods-MyDoors.release.xcconfig"; sourceTree = "<group>"; };
+		B331411BDDBDA39F404ABB3C /* Pods_MyDoors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyDoors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1BA59291DF89C4900C91A06 /* MyDoorsWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDoorsWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1BA592C1DF89C4900C91A06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		E1BA592E1DF89C4900C91A06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E1BA59301DF89C4900C91A06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1BA59351DF89C4900C91A06 /* MyDoorsWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MyDoorsWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1BA593B1DF89C4900C91A06 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		E1BA593C1DF89C4900C91A06 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		E1BA593E1DF89C4900C91A06 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		E1BA59401DF89C4900C91A06 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		E1BA59421DF89C4900C91A06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E1BA59441DF89C4900C91A06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5835BB11B4DB4A1001B6B9F /* MyDoors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDoors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5835BB51B4DB4A1001B6B9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5835BB61B4DB4A1001B6B9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,16 +135,29 @@
 		F5EBDBB41B7F67F7005FB73D /* QRCodeReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QRCodeReader.framework; path = "Pods/../build/Debug-iphoneos/QRCodeReader.framework"; sourceTree = "<group>"; };
 		F5EBDBB51B7F67F7005FB73D /* ReachabilitySwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReachabilitySwift.framework; path = "Pods/../build/Debug-iphoneos/ReachabilitySwift.framework"; sourceTree = "<group>"; };
 		F5EBDBB61B7F67F7005FB73D /* Socket_IO_Client_Swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Socket_IO_Client_Swift.framework; path = "Pods/../build/Debug-iphoneos/Socket_IO_Client_Swift.framework"; sourceTree = "<group>"; };
-		FADF9F6257F5DCFF590DC60A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		490ED81F07CA02A57996C073 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1BA59321DF89C4900C91A06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76B4ADAA9ED81E20921A60A5 /* Pods_MyDoorsWatch_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F5835BAE1B4DB4A1001B6B9F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5EBDBBA1B7F6B0C005FB73D /* Pods.framework in Frameworks */,
-				DF415A115637CD2B2AF8315C /* Pods.framework in Frameworks */,
+				E1BA59251DF89BAE00C91A06 /* Pods_MyDoors.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,17 +181,52 @@
 				F5EBDBAC1B7F5A98005FB73D /* ReachabilitySwift.framework */,
 				F5EBDBAD1B7F5A98005FB73D /* Socket_IO_Client_Swift.framework */,
 				4F1F12F75F9C5D1667B113AF /* Pods.framework */,
+				B331411BDDBDA39F404ABB3C /* Pods_MyDoors.framework */,
+				0E1F0654B2B0909435E101FB /* Pods_MyDoorsWatch_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5E0F9D687AAD7091A78AD722 /* Pods */ = {
+		B65B3089E4123B2764ED13B9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7E6DF12FC760CBBE2B957A24 /* Pods.debug.xcconfig */,
-				FADF9F6257F5DCFF590DC60A /* Pods.release.xcconfig */,
+				623C046E0074CB04F410E03D /* Pods-MyDoors.debug.xcconfig */,
+				9EE44DBCEA239503F81886C4 /* Pods-MyDoors.release.xcconfig */,
+				79493D192F6B97EA17B1BFC5 /* Pods-MyDoorsWatch Extension.debug.xcconfig */,
+				13D8AEB6DEFDED4AB9D5D3E2 /* Pods-MyDoorsWatch Extension.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E1BA592A1DF89C4900C91A06 /* MyDoorsWatch */ = {
+			isa = PBXGroup;
+			children = (
+				E1BA592B1DF89C4900C91A06 /* Interface.storyboard */,
+				E1BA592E1DF89C4900C91A06 /* Assets.xcassets */,
+				E1BA59301DF89C4900C91A06 /* Info.plist */,
+			);
+			path = MyDoorsWatch;
+			sourceTree = "<group>";
+		};
+		E1BA59391DF89C4900C91A06 /* MyDoorsWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E1BA593C1DF89C4900C91A06 /* InterfaceController.swift */,
+				E1BA593E1DF89C4900C91A06 /* ExtensionDelegate.swift */,
+				E1BA59401DF89C4900C91A06 /* NotificationController.swift */,
+				E1BA59421DF89C4900C91A06 /* Assets.xcassets */,
+				E1BA59441DF89C4900C91A06 /* Info.plist */,
+				E1BA593A1DF89C4900C91A06 /* Supporting Files */,
+			);
+			path = "MyDoorsWatch Extension";
+			sourceTree = "<group>";
+		};
+		E1BA593A1DF89C4900C91A06 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1BA593B1DF89C4900C91A06 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		F5835BA81B4DB4A1001B6B9F = {
@@ -114,9 +234,11 @@
 			children = (
 				F5835BB31B4DB4A1001B6B9F /* MyDoors */,
 				F5835BC91B4DB4A1001B6B9F /* MyDoorsTests */,
+				E1BA592A1DF89C4900C91A06 /* MyDoorsWatch */,
+				E1BA59391DF89C4900C91A06 /* MyDoorsWatch Extension */,
 				F5835BB21B4DB4A1001B6B9F /* Products */,
-				5E0F9D687AAD7091A78AD722 /* Pods */,
 				23CF43133D4DC572626798FD /* Frameworks */,
+				B65B3089E4123B2764ED13B9 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +247,8 @@
 			children = (
 				F5835BB11B4DB4A1001B6B9F /* MyDoors.app */,
 				F5835BC61B4DB4A1001B6B9F /* MyDoorsTests.xctest */,
+				E1BA59291DF89C4900C91A06 /* MyDoorsWatch.app */,
+				E1BA59351DF89C4900C91A06 /* MyDoorsWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,21 +295,62 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F5835BB01B4DB4A1001B6B9F /* MyDoors */ = {
+		E1BA59281DF89C4900C91A06 /* MyDoorsWatch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F5835BD01B4DB4A1001B6B9F /* Build configuration list for PBXNativeTarget "MyDoors" */;
+			buildConfigurationList = E1BA594C1DF89C4900C91A06 /* Build configuration list for PBXNativeTarget "MyDoorsWatch" */;
 			buildPhases = (
-				8DE345868B98AA5806AE556A /* Check Pods Manifest.lock */,
-				F5835BAD1B4DB4A1001B6B9F /* Sources */,
-				F5835BAE1B4DB4A1001B6B9F /* Frameworks */,
-				F5835BAF1B4DB4A1001B6B9F /* Resources */,
-				C6112154F629675C1ED4769A /* Embed Pods Frameworks */,
-				08919AAF987ED2B900483C40 /* Copy Pods Resources */,
-				F5EBDBBC1B7F6B0C005FB73D /* Embed Frameworks */,
+				E1BA59271DF89C4900C91A06 /* Resources */,
+				E1BA594B1DF89C4900C91A06 /* Embed App Extensions */,
+				490ED81F07CA02A57996C073 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E1BA59381DF89C4900C91A06 /* PBXTargetDependency */,
+			);
+			name = MyDoorsWatch;
+			productName = MyDoorsWatch;
+			productReference = E1BA59291DF89C4900C91A06 /* MyDoorsWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		E1BA59341DF89C4900C91A06 /* MyDoorsWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1BA59481DF89C4900C91A06 /* Build configuration list for PBXNativeTarget "MyDoorsWatch Extension" */;
+			buildPhases = (
+				F49FF86B29E205CAE1B78B74 /* [CP] Check Pods Manifest.lock */,
+				E1BA59311DF89C4900C91A06 /* Sources */,
+				E1BA59321DF89C4900C91A06 /* Frameworks */,
+				E1BA59331DF89C4900C91A06 /* Resources */,
+				E1BA59541DF8A62D00C91A06 /* Embed Frameworks */,
+				57ED1BA26E0BD6177224822C /* [CP] Embed Pods Frameworks */,
+				8DA63843848936F2B4ED3AD9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MyDoorsWatch Extension";
+			productName = "MyDoorsWatch Extension";
+			productReference = E1BA59351DF89C4900C91A06 /* MyDoorsWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		F5835BB01B4DB4A1001B6B9F /* MyDoors */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5835BD01B4DB4A1001B6B9F /* Build configuration list for PBXNativeTarget "MyDoors" */;
+			buildPhases = (
+				ED719700A87B70004FEEAA94 /* [CP] Check Pods Manifest.lock */,
+				F5835BAD1B4DB4A1001B6B9F /* Sources */,
+				F5835BAE1B4DB4A1001B6B9F /* Frameworks */,
+				F5835BAF1B4DB4A1001B6B9F /* Resources */,
+				F5EBDBBC1B7F6B0C005FB73D /* Embed Frameworks */,
+				C9525A129BDA3E06E80F6E38 /* [CP] Embed Pods Frameworks */,
+				1958E62D2020C3BD6980262F /* [CP] Copy Pods Resources */,
+				E1BA594F1DF89C4900C91A06 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1BA59461DF89C4900C91A06 /* PBXTargetDependency */,
 			);
 			name = MyDoors;
 			productName = MyDoors;
@@ -217,16 +382,28 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Florent THOMAS-MOREL";
 				TargetAttributes = {
+					E1BA59281DF89C4900C91A06 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 9JPSY4Q8SW;
+						ProvisioningStyle = Automatic;
+					};
+					E1BA59341DF89C4900C91A06 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 9JPSY4Q8SW;
+						ProvisioningStyle = Automatic;
+					};
 					F5835BB01B4DB4A1001B6B9F = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 9JPSY4Q8SW;
+						LastSwiftMigration = 0810;
 					};
 					F5835BC51B4DB4A1001B6B9F = {
 						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0810;
 						TestTargetID = F5835BB01B4DB4A1001B6B9F;
 					};
 				};
@@ -246,11 +423,30 @@
 			targets = (
 				F5835BB01B4DB4A1001B6B9F /* MyDoors */,
 				F5835BC51B4DB4A1001B6B9F /* MyDoorsTests */,
+				E1BA59281DF89C4900C91A06 /* MyDoorsWatch */,
+				E1BA59341DF89C4900C91A06 /* MyDoorsWatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E1BA59271DF89C4900C91A06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1BA592F1DF89C4900C91A06 /* Assets.xcassets in Resources */,
+				E1BA592D1DF89C4900C91A06 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1BA59331DF89C4900C91A06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1BA59431DF89C4900C91A06 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F5835BAF1B4DB4A1001B6B9F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -271,54 +467,109 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08919AAF987ED2B900483C40 /* Copy Pods Resources */ = {
+		1958E62D2020C3BD6980262F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyDoors/Pods-MyDoors-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8DE345868B98AA5806AE556A /* Check Pods Manifest.lock */ = {
+		57ED1BA26E0BD6177224822C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyDoorsWatch Extension/Pods-MyDoorsWatch Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C6112154F629675C1ED4769A /* Embed Pods Frameworks */ = {
+		8DA63843848936F2B4ED3AD9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyDoorsWatch Extension/Pods-MyDoorsWatch Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9525A129BDA3E06E80F6E38 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyDoors/Pods-MyDoors-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED719700A87B70004FEEAA94 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F49FF86B29E205CAE1B78B74 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E1BA59311DF89C4900C91A06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1BA59411DF89C4900C91A06 /* NotificationController.swift in Sources */,
+				E1BA593F1DF89C4900C91A06 /* ExtensionDelegate.swift in Sources */,
+				E1BA593D1DF89C4900C91A06 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F5835BAD1B4DB4A1001B6B9F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -340,6 +591,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E1BA59381DF89C4900C91A06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1BA59341DF89C4900C91A06 /* MyDoorsWatch Extension */;
+			targetProxy = E1BA59371DF89C4900C91A06 /* PBXContainerItemProxy */;
+		};
+		E1BA59461DF89C4900C91A06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1BA59281DF89C4900C91A06 /* MyDoorsWatch */;
+			targetProxy = E1BA59451DF89C4900C91A06 /* PBXContainerItemProxy */;
+		};
 		F5835BC81B4DB4A1001B6B9F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F5835BB01B4DB4A1001B6B9F /* MyDoors */;
@@ -348,6 +609,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		E1BA592B1DF89C4900C91A06 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1BA592C1DF89C4900C91A06 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		F5835BBA1B4DB4A1001B6B9F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -367,6 +636,98 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E1BA59491DF89C4900C91A06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79493D192F6B97EA17B1BFC5 /* Pods-MyDoorsWatch Extension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9JPSY4Q8SW;
+				INFOPLIST_FILE = "MyDoorsWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MyDoors.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		E1BA594A1DF89C4900C91A06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13D8AEB6DEFDED4AB9D5D3E2 /* Pods-MyDoorsWatch Extension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = 9JPSY4Q8SW;
+				INFOPLIST_FILE = "MyDoorsWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MyDoors.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		E1BA594D1DF89C4900C91A06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9JPSY4Q8SW;
+				IBSC_MODULE = MyDoorsWatch_Extension;
+				INFOPLIST_FILE = MyDoorsWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = MyDoors.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		E1BA594E1DF89C4900C91A06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9JPSY4Q8SW;
+				IBSC_MODULE = MyDoorsWatch_Extension;
+				INFOPLIST_FILE = MyDoorsWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = MyDoors.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
 		F5835BCE1B4DB4A1001B6B9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -380,8 +741,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -405,7 +768,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -426,8 +789,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -444,46 +809,47 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		F5835BD11B4DB4A1001B6B9F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E6DF12FC760CBBE2B957A24 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 623C046E0074CB04F410E03D /* Pods-MyDoors.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = MyDoors/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MyDoors;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		F5835BD21B4DB4A1001B6B9F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FADF9F6257F5DCFF590DC60A /* Pods.release.xcconfig */;
+			baseConfigurationReference = 9EE44DBCEA239503F81886C4 /* Pods-MyDoors.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = MyDoors/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MyDoors;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -503,6 +869,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thomasmorel.florent.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyDoors.app/MyDoors";
 			};
 			name = Debug;
@@ -519,6 +886,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thomasmorel.florent.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyDoors.app/MyDoors";
 			};
 			name = Release;
@@ -526,6 +894,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E1BA59481DF89C4900C91A06 /* Build configuration list for PBXNativeTarget "MyDoorsWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1BA59491DF89C4900C91A06 /* Debug */,
+				E1BA594A1DF89C4900C91A06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E1BA594C1DF89C4900C91A06 /* Build configuration list for PBXNativeTarget "MyDoorsWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1BA594D1DF89C4900C91A06 /* Debug */,
+				E1BA594E1DF89C4900C91A06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		F5835BAC1B4DB4A1001B6B9F /* Build configuration list for PBXProject "MyDoors" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -533,7 +919,7 @@
 				F5835BCF1B4DB4A1001B6B9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		F5835BD01B4DB4A1001B6B9F /* Build configuration list for PBXNativeTarget "MyDoors" */ = {
 			isa = XCConfigurationList;
@@ -542,7 +928,7 @@
 				F5835BD21B4DB4A1001B6B9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		F5835BD31B4DB4A1001B6B9F /* Build configuration list for PBXNativeTarget "MyDoorsTests" */ = {
 			isa = XCConfigurationList;
@@ -551,7 +937,7 @@
 				F5835BD51B4DB4A1001B6B9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
